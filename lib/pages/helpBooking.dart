@@ -6,12 +6,12 @@ class HelpBooking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        body: Carousel(),
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
+      body: SafeArea(child: Carousel()),
     );
   }
 }
@@ -61,12 +61,12 @@ class _CarouselState extends State<Carousel> {
               },
               itemBuilder: (context, pagePosition) {
                 bool active = pagePosition == activePage;
-                return slider(images,pagePosition,active);
+                return slider(images, pagePosition, active);
               }),
         ),
         Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: indicators(images.length,activePage)),
+            children: indicators(images.length, activePage)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
