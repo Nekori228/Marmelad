@@ -10,13 +10,13 @@ class startScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
-        body: SafeArea(
-          child: Container(
-            constraints: BoxConstraints.expand(),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/background/startScreen.png"),
-                    fit: BoxFit.cover)),
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/startScreen.png"),
+                  fit: BoxFit.cover)),
+          child: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,26 +25,36 @@ class startScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                    child: Text(
-                      'MARMELAD',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF),
-                          fontSize: 40,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 10),
-                    child: Text(
-                      'LOUNGE BAR',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF).withOpacity(0.4),
-                          fontSize: 20,
-                          fontFamily: "Poppins"),
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.fromLTRB(170, 0, 110, 0),
+                              child: Image.asset("assets/images/logo.png",
+                                  fit: BoxFit.cover),
+                            ),
+                            Text(
+                              'MARMELAD',
+                              style: TextStyle(
+                                  color: Color(0xFFFFFFFF),
+                                  fontSize: 40,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                              child: Text(
+                                'LOUNGE BAR',
+                                style: TextStyle(
+                                    color: Color(0xFFFFFFFF).withOpacity(0.4),
+                                    fontSize: 20,
+                                    fontFamily: "Poppins"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),

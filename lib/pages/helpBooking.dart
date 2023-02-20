@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marmelad/pages/signUp.dart';
+import 'appBar.dart';
 
 class HelpBooking extends StatelessWidget {
   const HelpBooking({Key? key}) : super(key: key);
@@ -7,10 +9,7 @@ class HelpBooking extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
-      ),
+      appBar: appBarMarmelad(),
       body: SafeArea(child: Carousel()),
     );
   }
@@ -27,6 +26,9 @@ class Carousel extends StatefulWidget {
 
 class _CarouselState extends State<Carousel> {
   late PageController _pageController;
+
+  void next() => _pageController.nextPage(
+      duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
 
   List<String> images = [
     "assets/images/frame1.png",
@@ -45,8 +47,8 @@ class _CarouselState extends State<Carousel> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Spacer(),
         SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 400,
@@ -64,102 +66,67 @@ class _CarouselState extends State<Carousel> {
                 return slider(images, pagePosition, active);
               }),
         ),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: indicators(images.length, activePage)),
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 150),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: indicators(images.length, activePage)),
+        ),
+        Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: Column(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/button.png"),
-                      ),
+            Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: SizedBox(
+                height: 41,
+                width: 145,
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      next;
+                    });
+                  },
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.black.withOpacity(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HelpBooking()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.black.withOpacity(0),
-                          ),
-                          child: SizedBox(
-                            width: 160,
-                            height: 50,
-                            child: Center(
-                              child: Text(
-                                "НАЧАТЬ",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    padding: EdgeInsets.zero,
                   ),
-                ],
+                  child: Text(
+                    "ПРОПУСТИТЬ",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
-              child: Column(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/button.png"),
-                      ),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: SizedBox(
+                height: 41,
+                width: 145,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HelpBooking()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.black.withOpacity(0),
-                          ),
-                          child: SizedBox(
-                            width: 160,
-                            height: 50,
-                            child: Center(
-                              child: Text(
-                                "НАЧАТЬ",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    padding: EdgeInsets.zero,
                   ),
-                ],
+                  child: Image.asset('assets/images/button_small.png',
+                      fit: BoxFit.cover),
+                ),
               ),
             ),
           ],

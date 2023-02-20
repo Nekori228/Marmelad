@@ -78,7 +78,11 @@ flutter:
   fonts:
    - family: Poppins
      fonts:
-       - asset: assets/fonts/Poppins-Regular.ttf
+      - asset: assets/fonts/Poppins-Regular.ttf
+   - family: Overpass-Black
+     fonts:
+      - asset: assets/fonts/Overpass-Black.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
