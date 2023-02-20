@@ -10,7 +10,7 @@ class HelpBooking extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: appBarMarmelad(),
-      body: SafeArea(child: Carousel()),
+      body: Carousel(),
     );
   }
 }
@@ -46,92 +46,94 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Spacer(),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 400,
-          child: PageView.builder(
-              itemCount: images.length,
-              pageSnapping: true,
-              controller: _pageController,
-              onPageChanged: (page) {
-                setState(() {
-                  activePage = page;
-                });
-              },
-              itemBuilder: (context, pagePosition) {
-                bool active = pagePosition == activePage;
-                return slider(images, pagePosition, active);
-              }),
-        ),
-        Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 150),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: indicators(images.length, activePage)),
-        ),
-        Spacer(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: SizedBox(
-                height: 41,
-                width: 145,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      next;
-                    });
-                  },
-                  clipBehavior: Clip.antiAlias,
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Colors.black.withOpacity(0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+    return SafeArea(
+      child: Column(
+        children: [
+          Spacer(),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 400,
+            child: PageView.builder(
+                itemCount: images.length,
+                pageSnapping: true,
+                controller: _pageController,
+                onPageChanged: (page) {
+                  setState(() {
+                    activePage = page;
+                  });
+                },
+                itemBuilder: (context, pagePosition) {
+                  bool active = pagePosition == activePage;
+                  return slider(images, pagePosition, active);
+                }),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 150),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: indicators(images.length, activePage)),
+          ),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: SizedBox(
+                  height: 41,
+                  width: 145,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        next;
+                      });
+                    },
+                    clipBehavior: Clip.antiAlias,
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: Colors.black.withOpacity(0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: EdgeInsets.zero,
                     ),
-                    padding: EdgeInsets.zero,
-                  ),
-                  child: Text(
-                    "ПРОПУСТИТЬ",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                    child: Text(
+                      "ПРОПУСТИТЬ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: SizedBox(
-                height: 41,
-                width: 145,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignUp()));
-                  },
-                  clipBehavior: Clip.antiAlias,
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: SizedBox(
+                  height: 41,
+                  width: 145,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUp()));
+                    },
+                    clipBehavior: Clip.antiAlias,
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: EdgeInsets.zero,
                     ),
-                    padding: EdgeInsets.zero,
+                    child: Image.asset('assets/images/button_small.png',
+                        fit: BoxFit.cover),
                   ),
-                  child: Image.asset('assets/images/button_small.png',
-                      fit: BoxFit.cover),
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
