@@ -36,6 +36,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,7 @@ flutter:
   assets:
     - assets/background/
     - assets/images/
+    - assets/gifs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -82,6 +84,12 @@ flutter:
    - family: Overpass-Black
      fonts:
       - asset: assets/fonts/Overpass-Black.ttf
+   - family: Overpass-SemiBold
+     fonts:
+      - asset: assets/fonts/Overpass-SemiBold.ttf
+   - family: Overpass-Bold
+     fonts:
+       - asset: assets/fonts/Overpass-Bold.ttf
 
   #
   # For details regarding fonts from package dependencies,

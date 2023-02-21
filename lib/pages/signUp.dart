@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/theme.dart';
 import 'appBar2.dart';
+import 'mainPage.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: themeArnitura,
+      theme: themeMarmelad,
       home: SignUpPage(),
     );
   }
@@ -137,7 +138,10 @@ class SignUpPage extends StatelessWidget {
               ),
               Spacer(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Main()));
+                },
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

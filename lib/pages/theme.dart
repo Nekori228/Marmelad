@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-final themeArnitura = ThemeData(
+final themeMarmelad = ThemeData(
   primarySwatch: Colors.yellow,
   textTheme: const TextTheme(
     titleMedium: TextStyle(

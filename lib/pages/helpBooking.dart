@@ -125,7 +125,7 @@ class _CarouselState extends State<Carousel> {
                       ),
                       padding: EdgeInsets.zero,
                     ),
-                    child: Image.asset('assets/images/button_small.png',
+                    child: Image.asset('assets/images/buttonSmall.png',
                         fit: BoxFit.cover),
                   ),
                 ),
