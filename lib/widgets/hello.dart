@@ -9,16 +9,17 @@ class HelloWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+      child: Center(
         child: Column(
           children: [
             Stack(
               children: [
                 Container(
-                  margin: EdgeInsets.fromLTRB(140, 30, 110, 0),
-                  child: SvgPicture.asset("assets/images/smale.png",
-                      fit: BoxFit.cover),
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(140, 30, 110, 0),
+                    child: SvgPicture.asset("assets/images/smale.svg",
+                        fit: BoxFit.cover),
+                  ),
                 ),
                 Text(
                   'Привет',

@@ -2,10 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../pages/homeMaimPage.dart';
-
-class TabsWidget extends StatelessWidget {
-  const TabsWidget({Key? key}) : super(key: key);
+class TabsWidget2 extends StatelessWidget {
+  const TabsWidget2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +16,7 @@ class TabsWidget extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeMainPage()));
-                },
+                onPressed: () {},
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -31,7 +27,7 @@ class TabsWidget extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    SvgPicture.asset("assets/images/tabs1_press.svg"),
+                    SvgPicture.asset("assets/images/tabs1.svg"),
                   ],
                 ),
               ),
@@ -51,7 +47,7 @@ class TabsWidget extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    SvgPicture.asset("assets/images/tabs2.svg"),
+                    SvgPicture.asset("assets/images/tabs2_press.svg"),
                   ],
                 ),
               ),

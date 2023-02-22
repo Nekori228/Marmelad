@@ -1,24 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:marmelad/pages/signUp.dart';
-import 'package:marmelad/widgets/hello.dart';
-import 'package:marmelad/pages/theme.dart';
-import 'package:marmelad/widgets/items.dart';
 
-import '../widgets/booking.dart';
-import '../widgets/tabs.dart';
-import 'homeMaimPage.dart';
-
-class Main extends StatelessWidget {
-  const Main({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: themeMarmelad,
-      home: bottomNavigation(),
-    );
+    return bottomNavigation();
   }
 }
 
@@ -33,10 +21,7 @@ class _pagesState extends State<bottomNavigation> {
 
   int _selectedPage = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    HomeMainPage(),
-    Item1(),
-    SignUpPage(),
-    SignUpPage(),
+
   ];
 
   void onSelectTab(int index) {
@@ -49,33 +34,40 @@ class _pagesState extends State<bottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+        }),
+      ),
+      routes: {
+        '/home': (context) => const MainPage(),
+      },
+      initialRoute: '/',
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body:  Center(
+        body: Center(
           child: _widgetOptions[_selectedPage],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Color(0xFF858582),
-          backgroundColor: Colors.black,
-          selectedItemColor: Color(0xFFF7FF88),
+          selectedItemColor: Colors.blue,
           currentIndex: _selectedPage,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Главная'
+                icon: Icon(Icons.newspaper),
+                label: 'Новости'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag_rounded),
-                label: 'Корзина'
+                icon: Icon(Icons.library_books_outlined),
+                label: 'Материал'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.edit_calendar),
-                label: 'Бронирование'
+                icon: Icon(Icons.quiz_outlined),
+                label: 'Тесты'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_sharp),
-                label: 'Профиль'
+                icon: Icon(Icons.account_circle_outlined),
+                label: 'Кабинет'
             ),
           ],
           onTap: onSelectTab,
@@ -84,4 +76,3 @@ class _pagesState extends State<bottomNavigation> {
     );
   }
 }
-
