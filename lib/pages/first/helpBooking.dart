@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marmelad/pages/signUp.dart';
-import 'appBar.dart';
+import 'package:marmelad/pages/first/signUp.dart';
+import '../../widgets/appBar/signUpAppBar.dart';
 
 class HelpBooking extends StatelessWidget {
   const HelpBooking({Key? key}) : super(key: key);
@@ -52,7 +52,7 @@ class _CarouselState extends State<Carousel> {
           Spacer(),
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 400,
+            height: 300,
             child: PageView.builder(
                 itemCount: images.length,
                 pageSnapping: true,

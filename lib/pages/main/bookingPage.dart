@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/booking.dart';
-import '../widgets/bookingBar.dart';
+import '../../widgets/booking.dart';
+import '../../widgets/bar/bookingBar.dart';
 
 class BookingPage extends StatelessWidget {
   const BookingPage({Key? key}) : super(key: key);

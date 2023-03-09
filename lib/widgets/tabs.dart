@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../pages/homeMaimPage.dart';
-import '../pages/test.dart';
+import '../pages/main/homeMaimPage.dart';
 
 class TabsWidget extends StatelessWidget {
   const TabsWidget({Key? key}) : super(key: key);
@@ -20,7 +19,7 @@ class TabsWidget extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => test()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeMainPage()));
                 },
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(

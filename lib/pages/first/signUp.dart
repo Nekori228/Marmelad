@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marmelad/pages/theme.dart';
-import 'appBar2.dart';
-import 'mainPage.dart';
+import 'package:marmelad/widgets/theme.dart';
+import '../../widgets/appBar/bookingHelpAppBar.dart';
+import '../main/mainPage.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -18,6 +18,7 @@ class SignUp extends StatelessWidget {
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

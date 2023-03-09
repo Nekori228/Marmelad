@@ -16,18 +16,18 @@ class Item1 extends StatelessWidget {
         ),
         padding: EdgeInsets.zero,
       ),
-      child: Column(
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset("assets/images/item1.png"),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.03),
-            child: Column(
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.03),
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/images/item1.png"),
+              ],
+            ),
+            Column(
               children: [
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -94,8 +94,8 @@ class Item1 extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -116,18 +116,18 @@ class Item2 extends StatelessWidget {
         ),
         padding: EdgeInsets.zero,
       ),
-      child: Column(
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset("assets/images/item2.png"),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.03),
-            child: Column(
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.03),
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/images/item2.png"),
+              ],
+            ),
+            Column(
               children: [
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -194,8 +194,8 @@ class Item2 extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
