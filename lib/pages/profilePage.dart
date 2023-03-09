@@ -1,0 +1,211 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/profileBar.dart';
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color(0xFF000000),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ProfileWidget(),
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 0, 130, 0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) => Main()));
+                      },
+                      clipBehavior: Clip.antiAlias,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        // padding: EdgeInsets.zero,
+                      ),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          child: Text(
+                            'Заказы',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Overpass-Bold",
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      clipBehavior: Clip.antiAlias,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        // padding: EdgeInsets.zero,
+                      ),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          child: Text(
+                            'Избранное',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Overpass-Bold",
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      clipBehavior: Clip.antiAlias,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        // padding: EdgeInsets.zero,
+                      ),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          child: Text(
+                            'История бронирования',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Overpass-Bold",
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      clipBehavior: Clip.antiAlias,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        // padding: EdgeInsets.zero,
+                      ),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          child: Text(
+                            'Часто задаваемые вопросы',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Overpass-Bold",
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      clipBehavior: Clip.antiAlias,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        // padding: EdgeInsets.zero,
+                      ),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          child: Text(
+                            'Обратная связь',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Overpass-Bold",
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.2),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    // padding: EdgeInsets.zero,
+                  ),
+                  child: Center(
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                      child: Text(
+                        'Выход из аккаунта',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Overpass-Bold",
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFFFFFFFF),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Политика конфидициальности',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 12,
+                  fontFamily: "Overpass-Bold",
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFFFFFFFF).withOpacity(0.5),
+                ),
+              ),
+              Text(
+                'О приложении',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 12,
+                  fontFamily: "Overpass-Bold",
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFFFFFFFF).withOpacity(0.5),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

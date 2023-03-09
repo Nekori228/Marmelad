@@ -1,13 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:marmelad/pages/%D1%81artPage.dart';
+import 'package:marmelad/pages/profilePage.dart';
 import 'package:marmelad/pages/signUp.dart';
 import 'package:marmelad/widgets/hello.dart';
 import 'package:marmelad/pages/theme.dart';
 import 'package:marmelad/widgets/items.dart';
 
+import '../isons/custom_icons.dart';
 import '../widgets/booking.dart';
 import '../widgets/tabs.dart';
+import 'bookingPage.dart';
 import 'homeMaimPage.dart';
 
 class Main extends StatelessWidget {
@@ -34,9 +38,9 @@ class _pagesState extends State<bottomNavigation> {
   int _selectedPage = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeMainPage(),
-    Item1(),
-    SignUpPage(),
-    SignUpPage(),
+    CartScreen(),
+    BookingPage(),
+    ProfilePage(),
   ];
 
   void onSelectTab(int index) {
@@ -62,19 +66,19 @@ class _pagesState extends State<bottomNavigation> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(CustomIcons.home_2),
                 label: 'Главная'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag_rounded),
+                icon: Icon(CustomIcons.group),
                 label: 'Корзина'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.edit_calendar),
+                icon: Icon(CustomIcons.group_2),
                 label: 'Бронирование'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_sharp),
+                icon: Icon(CustomIcons.group_3),
                 label: 'Профиль'
             ),
           ],

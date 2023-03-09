@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../widgets/booking.dart';
 import '../widgets/hello.dart';
@@ -10,20 +11,23 @@ class HomeMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            HelloWidget(),
-            TabsWidget(),
-            BookingWidget(),
-            Item1(),
-            Item2(),
-            Item1(),
-          ],
+    return Scaffold(
+      backgroundColor: Color(0xFF000000),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              HelloWidget(),
+              TabsWidget(),
+              BookingWidget(),
+              Item1(),
+              Item2(),
+              Item1(),
+            ],
+          ),
         ),
       ),
     );
