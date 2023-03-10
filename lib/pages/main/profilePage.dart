@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/pages/main/profile/favoritesProfilePage.dart';
+import 'package:marmelad/pages/main/profile/orderProfilePage.dart';
+import 'package:marmelad/pages/main/profile/questionsProfilePage.dart';
 
 import '../../widgets/bar/profileBar.dart';
-import '../profile/orderProfilePage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -26,8 +28,10 @@ class ProfilePage extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => OrderProfilePage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => OrderProfilePage()));
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
@@ -56,7 +60,13 @@ class ProfilePage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      FavoritesProfilePage()));
+                        },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
@@ -112,7 +122,13 @@ class ProfilePage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      questionsProfilePage()));
+                        },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),

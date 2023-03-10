@@ -18,7 +18,7 @@ class BasketItems1 extends StatelessWidget {
       ),
       child: Row(
           children: [
-            Image.asset("assets/images/item1_basket.png"),
+            Image.asset("assets/images/item1_basket_favorite.png"),
             Expanded(
               child: Container(
                 child: Column(
@@ -87,7 +87,7 @@ class BasketItems2 extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset("assets/images/item2_basket.png"),
+          Image.asset("assets/images/item2_basket_favorite.png"),
           Expanded(
             child: Container(
               child: Column(

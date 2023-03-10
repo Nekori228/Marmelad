@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class OrderAppBar extends StatelessWidget with PreferredSizeWidget {
+class FavoriteAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -9,12 +9,12 @@ class OrderAppBar extends StatelessWidget with PreferredSizeWidget {
       centerTitle: false,
       iconTheme: IconThemeData(color: Colors.white),
       title: Text(
-        'Заказы',
+        'Избранное',
         style: TextStyle(
           color: Color(0xFFFFFFFF),
           fontSize: 40,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.bold
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.bold
         ),
       ),
       leading: IconButton(
