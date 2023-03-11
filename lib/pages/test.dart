@@ -1,72 +1,166 @@
-import 'package:flutter/material.dart';
-import 'package:marmelad/widgets/mainItems.dart';
+import 'dart:math' as math;
 
-class test extends StatelessWidget {
+import 'package:expansion_widget/expansion_widget.dart';
+import 'package:flutter/material.dart';
+
+
+class Test extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
+class HomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _currentIndex = 0;
+class _HomePageState extends State<HomePage> {
+  bool? _expanded2;
+  final _key3 = GlobalKey<ExpansionWidgetState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: IndexedStack(
-        index: _currentIndex,
+      appBar: AppBar(title: Text('Flutter Expansion Widget Demo')),
+      body: Column(
         children: [
-          Item1(),
-          Item2(),
-          Item1(),
+          Card(
+            color: Colors.white,
+            child: ExpansionWidget(
+                initiallyExpanded: true,
+                titleBuilder:
+                    (double animationValue, _, bool isExpaned, toogleFunction) {
+                  return InkWell(
+                      onTap: () => toogleFunction(animated: true),
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                                child: Text('1. Expansion Widget Title 1')),
+                            Transform.rotate(
+                              angle: math.pi * animationValue / 2,
+                              child: Icon(Icons.arrow_right, size: 40),
+                              alignment: Alignment.center,
+                            )
+                          ],
+                        ),
+                      ));
+                },
+                content: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(20),
+                  child: Text('Expaned Content'),
+                )),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            child: ExpansionWidget(
+                onSaveState: (value) => _expanded2 = value,
+                onRestoreState: () => _expanded2,
+                duration: const Duration(seconds: 1),
+                titleBuilder:
+                    (_, double easeInValue, bool isExpaned, toogleFunction) {
+                  return Material(
+                    color: Color.lerp(
+                        Colors.red.shade100, Colors.orange, easeInValue),
+                    child: InkWell(
+                        onTap: () => toogleFunction(animated: true),
+                        child: Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  child: Text('2. Title 2',
+                                      style: TextStyle(
+                                          color: Color.lerp(Colors.black,
+                                              Colors.white, easeInValue)))),
+                              Transform.rotate(
+                                  angle: -math.pi * 2 * (easeInValue),
+                                  child: Icon(Icons.settings,
+                                      size: 40, color: Colors.white)),
+                              Container(
+                                color: Colors.transparent,
+                                height: 1,
+                                width: easeInValue * math.pi * 40,
+                              ),
+                              Transform.rotate(
+                                angle: math.pi * (easeInValue + 0.5),
+                                child: Icon(Icons.arrow_back,
+                                    size: 40,
+                                    color: Color.lerp(Colors.white,
+                                        Colors.black, easeInValue)),
+                                alignment: Alignment.center,
+                              )
+                            ],
+                          ),
+                        )),
+                  );
+                },
+                content: Container(
+                  width: double.infinity,
+                  color: Colors.orange,
+                  padding: EdgeInsets.all(20),
+                  child: Text('Expaned Content'),
+                )),
+          ),
+          Card(
+            color: Colors.white,
+            child: ExpansionWidget(
+                key: _key3,
+                initiallyExpanded: true,
+                titleBuilder:
+                    (double animationValue, _, bool isExpaned, toogleFunction) {
+                  return InkWell(
+                      onTap: () => toogleFunction(animated: true),
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                                child: Text('3. Expansion Widget Title 3')),
+                            Transform.rotate(
+                              angle: math.pi * animationValue / 2,
+                              child: Icon(Icons.arrow_right, size: 40),
+                              alignment: Alignment.center,
+                            )
+                          ],
+                        ),
+                      ));
+                },
+                content: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(20),
+                  child: Text('Expaned Content'),
+                )),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _expanded2 = !(_expanded2 ?? false);
+                });
+              },
+              child: Text('Toogle 2')),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _key3.currentState?.toggle(animated: true);
+                });
+              },
+              child: Text('Toogle 3')),
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
-        currentIndex: _currentIndex,
-        unselectedItemColor: Color(0xff3a0ca3),
-        selectedItemColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.attach_money_rounded,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.currency_exchange_rounded,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.info,
-            ),
-            label: '',
-          ),
-        ],
-        onTap: (index) => setState(() => _currentIndex = index),
       ),
     );
   }

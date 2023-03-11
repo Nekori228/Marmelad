@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../widgets/booking.dart';
 import '../../widgets/bar/mainBar.dart';
 import '../../widgets/mainItems.dart';

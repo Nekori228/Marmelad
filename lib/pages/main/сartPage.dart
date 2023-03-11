@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../widgets/basket/basket.dart';
-import '../../widgets/basket/basketItems.dart';
-import '../../widgets/booking.dart';
-import '../../widgets/bar/mainBar.dart';
-import '../../widgets/mainItems.dart';
-import '../../widgets/tabs.dart';
+import '../../widgets/profilewidgets/basket/basket.dart';
+import '../../widgets/profilewidgets/basket/basketItems.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);

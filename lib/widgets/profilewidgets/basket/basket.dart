@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BasketWidget extends StatelessWidget {
   const BasketWidget({Key? key}) : super(key: key);

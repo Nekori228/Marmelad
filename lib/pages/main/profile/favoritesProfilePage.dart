@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../widgets/appBar/favoriteAppBar.dart';
-import '../../../widgets/favorite/favoriteItems.dart';
+import '../../../widgets/profilewidgets/favorite/favoriteItems.dart';
 
 class FavoritesProfilePage extends StatefulWidget {
   const FavoritesProfilePage({Key? key}) : super(key: key);
