@@ -19,7 +19,6 @@ class SignUp extends StatelessWidget {
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -72,9 +71,12 @@ class SignUpPage extends StatelessWidget {
                       filled: true,
                       fillColor: Color(0xFFF7FF88).withOpacity(0.2),
                       suffixIcon: GestureDetector(
-                          onTap: () {},
-                          child: Icon(Icons.arrow_circle_right_sharp,
-                              color: Color(0xFFF7FF88))),
+                        onTap: () {},
+                        child: Icon(
+                          Icons.arrow_circle_right_sharp,
+                          color: Color(0xFFF7FF88),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -119,9 +121,12 @@ class SignUpPage extends StatelessWidget {
                       filled: true,
                       fillColor: Color(0xFFF7FF88).withOpacity(0.2),
                       suffixIcon: GestureDetector(
-                          onTap: () {},
-                          child: Icon(Icons.arrow_circle_right_sharp,
-                              color: Color(0xFFF7FF88))),
+                        onTap: () {},
+                        child: Icon(
+                          Icons.arrow_circle_right_sharp,
+                          color: Color(0xFFF7FF88),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -140,8 +145,8 @@ class SignUpPage extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Main()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Main()));
                 },
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(
