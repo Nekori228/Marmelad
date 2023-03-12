@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/appBar/favoriteAppBar.dart';
-import '../../../widgets/profilewidgets/favorite/favoriteItems.dart';
+import '../../../widgets/profilewidgets/favorite/favoriteOrderItems.dart';
 
 class FavoritesProfilePage extends StatefulWidget {
   const FavoritesProfilePage({Key? key}) : super(key: key);
@@ -22,9 +22,9 @@ class _FavoritesProfilePageState extends State<FavoritesProfilePage> {
          child: Column(
            children: [
              SizedBox(height: 30),
-             FavoriteItems1(),
+             FavoriteOrderItems1(),
              SizedBox(height: 30),
-             FavoriteItems2()
+             FavoriteOrderItems2()
            ],
          ),
        ),

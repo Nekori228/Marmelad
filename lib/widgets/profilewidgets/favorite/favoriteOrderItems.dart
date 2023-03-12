@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FavoriteItems1 extends StatelessWidget {
-  const FavoriteItems1({Key? key}) : super(key: key);
+class FavoriteOrderItems1 extends StatelessWidget {
+  const FavoriteOrderItems1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +79,8 @@ class FavoriteItems1 extends StatelessWidget {
   }
 }
 
-class FavoriteItems2 extends StatelessWidget {
-  const FavoriteItems2({Key? key}) : super(key: key);
+class FavoriteOrderItems2 extends StatelessWidget {
+  const FavoriteOrderItems2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../pages/main/profile/order912ProfilePage.dart';
+
 class OrderItemsCooking1 extends StatelessWidget {
   const OrderItemsCooking1({Key? key}) : super(key: key);
 
@@ -10,7 +12,12 @@ class OrderItemsCooking1 extends StatelessWidget {
       margin: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.03),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Order912ProfilePage()));
+        },
         clipBehavior: Clip.antiAlias,
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xFF0D0D0D),

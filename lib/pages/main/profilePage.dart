@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/pages/main/profile/bookingHistory.dart';
 import 'package:marmelad/pages/main/profile/favoritesProfilePage.dart';
 import 'package:marmelad/pages/main/profile/feedbackProfile.dart';
 import 'package:marmelad/pages/main/profile/orderProfilePage.dart';
@@ -96,7 +97,12 @@ class ProfilePage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => bookingHistory()));
+                        },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),

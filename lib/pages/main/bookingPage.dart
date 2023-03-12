@@ -14,6 +14,7 @@ class BookingPage extends StatelessWidget {
         child: Column(
           children: [
             BookingBarWidget(),
+            SizedBox(height: 20),
             Container(
               child: Container(
                 margin: EdgeInsets.symmetric(
@@ -39,6 +40,7 @@ class BookingPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 10),
             BookingWidget(),
             Spacer(),
             ElevatedButton(
