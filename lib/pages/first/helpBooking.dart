@@ -25,7 +25,7 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  late PageController _pageController;
+  PageController _pageController = PageController(viewportFraction: 1.0, initialPage: 0);
 
   void next() => _pageController.nextPage(
       duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
@@ -41,7 +41,6 @@ class _CarouselState extends State<Carousel> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 1.0, initialPage: 0);
   }
 
   @override
@@ -74,7 +73,7 @@ class _CarouselState extends State<Carousel> {
                 children: indicators(images.length, activePage)),
           ),
           Spacer(),
-          Row(
+          activePage != 2 ? Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
@@ -108,6 +107,32 @@ class _CarouselState extends State<Carousel> {
                   ),
                 ),
               ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: SizedBox(
+                  height: 41,
+                  width: 145,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUp()));
+                    },
+                    clipBehavior: Clip.antiAlias,
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                    child: Image.asset('assets/images/buttonSmall.png',
+                        fit: BoxFit.cover),
+                  ),
+                ),
+              ),
+            ],
+          ) : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
               Container(
                 margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
                 child: SizedBox(
