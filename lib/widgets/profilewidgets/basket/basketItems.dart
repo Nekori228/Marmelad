@@ -19,6 +19,7 @@ class BasketItems1 extends StatelessWidget {
       child: Row(
           children: [
             Image.asset("assets/images/item1_basket_favorite.png"),
+            SizedBox(width: 20),
             Expanded(
               child: Container(
                 child: Column(
@@ -31,6 +32,7 @@ class BasketItems1 extends StatelessWidget {
                           fontFamily: "Overpass-Bold",
                           fontSize: 14),
                     ),
+                    SizedBox(height: 5),
                     Text(
                       '200гр',
                       style: TextStyle(
@@ -49,6 +51,7 @@ class BasketItems1 extends StatelessWidget {
                             fontSize: 12),
                       ),
                     ),
+                    SizedBox(height: 5),
                     Row(
                       children: [
                         Image.asset("assets/images/rm.png"),
@@ -88,6 +91,7 @@ class BasketItems2 extends StatelessWidget {
       child: Row(
         children: [
           Image.asset("assets/images/item2_basket_favorite.png"),
+          SizedBox(width: 20),
           Expanded(
             child: Container(
               child: Column(
@@ -100,6 +104,7 @@ class BasketItems2 extends StatelessWidget {
                         fontFamily: "Overpass-Bold",
                         fontSize: 14),
                   ),
+                  SizedBox(height: 5),
                   Text(
                     '200гр',
                     style: TextStyle(
@@ -118,6 +123,7 @@ class BasketItems2 extends StatelessWidget {
                           fontSize: 12),
                     ),
                   ),
+                  SizedBox(height: 5),
                   Row(
                     children: [
                       Image.asset("assets/images/rm.png"),

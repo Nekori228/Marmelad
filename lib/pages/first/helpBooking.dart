@@ -130,29 +130,34 @@ class _CarouselState extends State<Carousel> {
                 ),
               ),
             ],
-          ) : Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          ) : Column(
             children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                child: SizedBox(
-                  height: 41,
-                  width: 145,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
-                    },
-                    clipBehavior: Clip.antiAlias,
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Image.asset('assets/images/buttonSmall.png',
-                        fit: BoxFit.cover),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => SignUp()));
+                },
+                clipBehavior: Clip.antiAlias,
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
+                  padding: EdgeInsets.zero,
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset("assets/images/button.png", fit: BoxFit.cover),
+                    Text(
+                      'ПРОДОЖИТЬ',
+                      style: TextStyle(
+                          letterSpacing: 3.75,
+                          fontSize: 24,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
               ),
             ],

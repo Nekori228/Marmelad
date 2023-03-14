@@ -200,3 +200,203 @@ class Item2 extends StatelessWidget {
     );
   }
 }
+
+class Item3 extends StatelessWidget {
+  const Item3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      clipBehavior: Clip.antiAlias,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.zero,
+      ),
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.03),
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/images/item3.png"),
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "ВОДКА BELUGA",
+                            style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontFamily: "Overpass-Bold",
+                                fontSize: 14),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Text(
+                              "40ml",
+                              style: TextStyle(
+                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
+                                  fontFamily: "Overpass-Bold",
+                                  fontSize: 14),
+                            ),
+                          )
+                        ],
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.star,
+                        color: Color(0xFFF7FF88),
+                        size: 20,
+                      ),
+                      Text(
+                        "4.1",
+                        style: TextStyle(color: Color(0xFFF7FF88)),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 230,
+                      height: 60,
+                      child: Text(
+                        'Водка "Белуга" относится к классу элитных алкогольных напитков',
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF).withOpacity(0.5),
+                            fontFamily: "Overpass-SemiBold",
+                            fontSize: 16),
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      '195 ₽',
+                      style: TextStyle(
+                          color: Color(0xFFF7FF88),
+                          fontSize: 20
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Item4 extends StatelessWidget {
+  const Item4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      clipBehavior: Clip.antiAlias,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.zero,
+      ),
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.03),
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/images/item4.png"),
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "ВИНО АЛЬМА ВЕЛЛИ",
+                            style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontFamily: "Overpass-Bold",
+                                fontSize: 14),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Text(
+                              "750ml",
+                              style: TextStyle(
+                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
+                                  fontFamily: "Overpass-Bold",
+                                  fontSize: 14),
+                            ),
+                          )
+                        ],
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.star,
+                        color: Color(0xFFF7FF88),
+                        size: 20,
+                      ),
+                      Text(
+                        "4.1",
+                        style: TextStyle(color: Color(0xFFF7FF88)),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 230,
+                      height: 60,
+                      child: Text(
+                        'Водка "Белуга" относится к классу элитных алкогольных напитков',
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF).withOpacity(0.5),
+                            fontFamily: "Overpass-SemiBold",
+                            fontSize: 16),
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      '2090 ₽',
+                      style: TextStyle(
+                          color: Color(0xFFF7FF88),
+                          fontSize: 20
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

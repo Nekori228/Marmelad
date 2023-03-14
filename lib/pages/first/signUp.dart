@@ -145,8 +145,8 @@ class SignUpPage extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Main()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => Main()));
                 },
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(

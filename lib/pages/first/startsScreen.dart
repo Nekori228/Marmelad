@@ -62,7 +62,7 @@ class startScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HelpBooking()));
+                        MaterialPageRoute(builder: (context) => HelpBooking(), fullscreenDialog: true));
                   },
                   clipBehavior: Clip.antiAlias,
                   style: ElevatedButton.styleFrom(

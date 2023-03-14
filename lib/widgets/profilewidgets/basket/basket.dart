@@ -35,7 +35,7 @@ class BasketWidget extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(220, 0, 1, 0),
                   child:
-                  Image.asset("assets/gifs/higif.gif", fit: BoxFit.cover),
+                  Image.asset("assets/gifs/store.gif", fit: BoxFit.cover),
                 ),
               ],
             ),

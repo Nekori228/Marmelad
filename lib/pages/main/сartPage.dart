@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/pages/main/paymentPage.dart';
 import '../../widgets/profilewidgets/basket/basket.dart';
 import '../../widgets/profilewidgets/basket/basketItems.dart';
 
@@ -11,32 +12,55 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF000000),
       body: SafeArea(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BasketWidget(),
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.03),
-                child: Column(
-                  children: [
-                    BasketItems1(),
-                    BasketItems2(),
-                    Row(
+        child: Column(
+          children: [
+            BasketWidget(),
+            SizedBox(height: 30),
+            Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.03),
+              child: Column(
+                children: [
+                  BasketItems1(),
+                  SizedBox(height: 20),
+                  BasketItems2(),
+                ],
+              ),
+            ),
+            Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(25),
+                    bottomRight: Radius.circular(0),
+                    topLeft: Radius.circular(25),
+                    bottomLeft: Radius.circular(0),
+                  ), color: Color(0xFFFFFFFF).withOpacity(0.05)),
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.10),
+                    child: Row(
                       children: [
-                        Text(
-                          'Доставка',
-                          style: TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontFamily: "Overpass-Bold",
-                              fontSize: 14),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Text(
+                            'Доставка',
+                            style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontFamily: "Overpass-Bold",
+                                fontSize: 14),
+                          ),
                         )
                       ],
                     ),
-                    Row(
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.10),
+                    child: Row(
                       children: [
                         Text(
                           'Итог:',
@@ -55,10 +79,13 @@ class CartScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    ElevatedButton(
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(20),
+                    child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => Main()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => PaymentPage()));
                       },
                       clipBehavior: Clip.antiAlias,
                       style: ElevatedButton.styleFrom(
@@ -84,11 +111,11 @@ class CartScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

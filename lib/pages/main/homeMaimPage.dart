@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../widgets/booking.dart';
 import '../../widgets/bar/mainBar.dart';
 import '../../widgets/mainItems.dart';
-import '../../widgets/tabs.dart';
 
 class HomeMainPage extends StatefulWidget {
   const HomeMainPage({Key? key}) : super(key: key);
@@ -127,24 +126,31 @@ class _HomeMainPageState extends State<HomeMainPage> {
               ),
             ),
             BookingWidget(),
+            SizedBox(height: 20),
             ExpandablePageView(controller: pageController, children: [
               Column(
-                children: [Item1(), Item1()],
-              ),
-              Column(
                 children: [
-                  Item2(),Item1()
+                  Item1(),
+                  SizedBox(height: 40),
+                  Item2(),
+                  SizedBox(height: 40),
+                  Item1()
                 ],
               ),
               Column(
                 children: [
-                  Item2(),Item1()
+                  Item2(),
+                  SizedBox(height: 40),
+                  Item1(),
+                  SizedBox(height: 40),
+                  Item1()
                 ],
               ),
               Column(
-                children: [
-                  Item2(),Item1()
-                ],
+                children: [Item3(), SizedBox(height: 40), Item3()],
+              ),
+              Column(
+                children: [Item4(), SizedBox(height: 40), Item4()],
               ),
             ]),
           ],

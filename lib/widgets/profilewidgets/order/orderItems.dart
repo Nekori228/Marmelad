@@ -29,7 +29,7 @@ class OrderItemsCooking1 extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              margin: EdgeInsets.all(15),
+              margin: EdgeInsets.all(10),
                 child: Image.asset("assets/images/item1_order.png")),
             Expanded(
               child: Container(
@@ -58,7 +58,7 @@ class OrderItemsCooking1 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             SizedBox(
-                              width: 140,
+                              width: 120,
                               height: 60,
                               child: Column(
                                 children: [
@@ -157,7 +157,7 @@ class OrderItemsReady1 extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                margin: EdgeInsets.all(15),
+                margin: EdgeInsets.all(10),
                 child: Image.asset("assets/images/item1_order.png")),
             Expanded(
               child: Container(
@@ -186,7 +186,7 @@ class OrderItemsReady1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           SizedBox(
-                            width: 140,
+                            width: 120,
                             height: 60,
                             child: Column(
                               children: [
@@ -284,7 +284,7 @@ class OrderItemsDelivery1 extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                margin: EdgeInsets.all(15),
+                margin: EdgeInsets.all(10),
                 child: Image.asset("assets/images/item1_order.png")),
             Expanded(
               child: Container(
@@ -313,7 +313,7 @@ class OrderItemsDelivery1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           SizedBox(
-                            width: 140,
+                            width: 120,
                             height: 60,
                             child: Column(
                               children: [
@@ -411,7 +411,7 @@ class OrderItemsFinish1 extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                margin: EdgeInsets.all(15),
+                margin: EdgeInsets.all(10),
                 child: Image.asset("assets/images/item1_order.png")),
             Expanded(
               child: Container(
@@ -440,7 +440,7 @@ class OrderItemsFinish1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           SizedBox(
-                            width: 140,
+                            width: 120,
                             height: 60,
                             child: Column(
                               children: [
