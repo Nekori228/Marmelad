@@ -84,6 +84,8 @@ class _CarouselState extends State<Carousel> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
                         next;
                       });
                     },
