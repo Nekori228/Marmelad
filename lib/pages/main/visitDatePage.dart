@@ -6,20 +6,38 @@ import 'package:scrollable_clean_calendar/utils/enums.dart';
 
 import '../../widgets/appBar/VisitDateAppBar.dart';
 
-class VisitDatePage extends StatelessWidget {
-  final calendarController = CleanCalendarController(
-    minDate: DateTime.now(),
-    maxDate: DateTime.now().add(const Duration(days: 365)),
-    onRangeSelected: (firstDate, secondDate) {},
-    onDayTapped: (date) {},
-    // readOnly: true,
-    onPreviousMinDateTapped: (date) {},
-    onAfterMaxDateTapped: (date) {},
-    weekdayStart: DateTime.monday,
-    // initialFocusDate: DateTime(2023, 5),
-    // initialDateSelected: DateTime(2022, 3, 15),
-    // endDateSelected: DateTime(2022, 3, 20),
-  );
+class VisitDatePage extends StatefulWidget {
+  @override
+  State<VisitDatePage> createState() => _VisitDatePageState();
+}
+
+class _VisitDatePageState extends State<VisitDatePage> {
+  dynamic maxDate = 0;
+  late final calendarController;
+
+  @override
+  void initState() {
+    super.initState();
+    var date = DateTime.now();
+    var firstDayThisMonth = new DateTime(date.year, date.month, date.day);
+    var firstDayNextMonth = new DateTime(firstDayThisMonth.year, firstDayThisMonth.month + 1, firstDayThisMonth.day);
+    maxDate = DateTime.now().add(Duration(days: firstDayNextMonth.difference(firstDayThisMonth).inDays - date.day));
+    calendarController = CleanCalendarController(
+      minDate: DateTime.now(),
+      maxDate: maxDate,
+      onRangeSelected: (firstDate, secondDate) {
+      },
+      onDayTapped: (date) {},
+      // readOnly: true,
+      onPreviousMinDateTapped: (date) {},
+      onAfterMaxDateTapped: (date) {},
+      weekdayStart: DateTime.monday,
+      // initialFocusDate: DateTime(2023, 5),
+      // initialDateSelected: DateTime(2022, 3, 15),
+      // endDateSelected: DateTime(2022, 3, 20),
+    );
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {

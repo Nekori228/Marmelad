@@ -11,11 +11,6 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   runApp(MaterialApp(
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const startScreen(),
-      '/signup': (context) => const SignUp(),
-      '/main': (context) => const Main(),
-    },
+    home: startScreen(),
   ));
 }

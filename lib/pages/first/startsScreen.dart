@@ -7,8 +7,7 @@ class startScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         body: Container(
           constraints: BoxConstraints.expand(),
@@ -62,7 +61,7 @@ class startScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HelpBooking(), fullscreenDialog: true));
+                        MaterialPageRoute(builder: (context) => HelpBooking()));
                   },
                   clipBehavior: Clip.antiAlias,
                   style: ElevatedButton.styleFrom(
@@ -96,7 +95,6 @@ class startScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

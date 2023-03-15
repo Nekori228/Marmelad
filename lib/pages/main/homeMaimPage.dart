@@ -2,6 +2,7 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:marmelad/globals.dart';
 import '../../widgets/booking.dart';
 import '../../widgets/bar/mainBar.dart';
 import '../../widgets/mainItems.dart';
@@ -17,8 +18,10 @@ class _HomeMainPageState extends State<HomeMainPage> {
   var pageController = PageController();
 
   void setPage(index) {
+    selectedPage = index;
     pageController.animateToPage(index,
         duration: Duration(seconds: 1), curve: Curves.ease);
+    setState(() {});
   }
 
   @override
@@ -45,6 +48,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -53,7 +57,10 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            SvgPicture.asset("assets/images/tabs1_press.svg"),
+                            selectedPage == 0
+                                ? SvgPicture.asset(
+                                    "assets/images/tabs1_press.svg")
+                                : SvgPicture.asset("assets/images/tabs1.svg"),
                           ],
                         ),
                       ),
@@ -75,7 +82,10 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            SvgPicture.asset("assets/images/tabs2.svg"),
+                            selectedPage == 1
+                                ? SvgPicture.asset(
+                                    "assets/images/tabs2_press.svg")
+                                : SvgPicture.asset("assets/images/tabs2.svg"),
                           ],
                         ),
                       ),
@@ -97,7 +107,10 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            SvgPicture.asset("assets/images/tabs3.svg"),
+                            selectedPage == 2
+                                ? SvgPicture.asset(
+                                    "assets/images/tabs3_press.svg")
+                                : SvgPicture.asset("assets/images/tabs3.svg"),
                           ],
                         ),
                       ),
@@ -117,7 +130,10 @@ class _HomeMainPageState extends State<HomeMainPage> {
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          SvgPicture.asset("assets/images/tabs4.svg"),
+                          selectedPage == 3
+                              ? SvgPicture.asset(
+                                  "assets/images/tabs4_press.svg")
+                              : SvgPicture.asset("assets/images/tabs4.svg"),
                         ],
                       ),
                     ),

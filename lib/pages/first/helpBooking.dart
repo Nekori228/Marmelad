@@ -40,11 +40,6 @@ class _CarouselState extends State<Carousel> {
   int activePage = 0;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
@@ -87,11 +82,11 @@ class _CarouselState extends State<Carousel> {
                         child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => SignUp()));
-                              next;
+                              next();
                             });
                           },
                           clipBehavior: Clip.antiAlias,
@@ -121,7 +116,7 @@ class _CarouselState extends State<Carousel> {
                         width: 145,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => SignUp()));
@@ -144,7 +139,7 @@ class _CarouselState extends State<Carousel> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,
+                        Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) => SignUp()));
                       },
                       clipBehavior: Clip.antiAlias,

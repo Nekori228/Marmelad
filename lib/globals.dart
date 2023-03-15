@@ -1,0 +1,1 @@
+var selectedPage = 0;

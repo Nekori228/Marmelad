@@ -9,10 +9,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: themeMarmelad,
-      home: SignUpPage(),
-    );
+    return SignUpPage();
   }
 }
 
@@ -22,11 +19,11 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: appBarMarmelad2(),
-        body: Container(
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: appBarMarmelad2(),
+      body: SafeArea(
+        child: Container(
           margin: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.04),
           child: Column(
@@ -145,6 +142,7 @@ class SignUpPage extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                 onPressed: () {
+                  Navigator.of(context).pop();
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => Main()));
                 },
