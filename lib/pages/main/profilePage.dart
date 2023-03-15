@@ -7,6 +7,7 @@ import 'package:marmelad/pages/main/profile/orderProfilePage.dart';
 import 'package:marmelad/pages/main/profile/questionsProfilePage.dart';
 
 import '../../widgets/bar/profileBar.dart';
+import '../first/startsScreen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -207,7 +208,12 @@ class ProfilePage extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => startScreen()));
+                    },
                     clipBehavior: Clip.antiAlias,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),

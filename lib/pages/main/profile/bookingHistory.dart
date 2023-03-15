@@ -39,7 +39,7 @@ class bookingHistory extends StatelessWidget {
                           size: 40,
                         ),
                         onPressed: () {
-                          // Navigator.pop(context);
+                          Navigator.pop(context);
                         }),
                   ],
                 ),

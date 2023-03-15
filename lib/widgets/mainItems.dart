@@ -1,5 +1,8 @@
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/main/viewItem.dart';
 
 class Item1 extends StatelessWidget {
   const Item1({Key? key}) : super(key: key);
@@ -7,7 +10,14 @@ class Item1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
@@ -25,6 +35,17 @@ class Item1 extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/images/item1.png"),
+                Positioned(
+                  right: 25,
+                  top: 25,
+                  child: FavoriteButton(
+                    isFavorite: false,
+                    iconSize: 30,
+                    iconDisabledColor: Colors.white,
+                    valueChanged: (_isFavorite) {
+                    },
+                  ),
+                ),
               ],
             ),
             Column(
@@ -85,10 +106,7 @@ class Item1 extends StatelessWidget {
                     Spacer(),
                     Text(
                       '300 ₽',
-                      style: TextStyle(
-                          color: Color(0xFFF7FF88),
-                          fontSize: 20
-                      ),
+                      style: TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                     )
                   ],
                 ),
@@ -125,6 +143,17 @@ class Item2 extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/images/item2.png"),
+                Positioned(
+                  right: 25,
+                  top: 25,
+                  child: FavoriteButton(
+                    isFavorite: false,
+                    iconSize: 30,
+                    iconDisabledColor: Colors.white,
+                    valueChanged: (_isFavorite) {
+                    },
+                  ),
+                ),
               ],
             ),
             Column(
@@ -185,10 +214,7 @@ class Item2 extends StatelessWidget {
                     Spacer(),
                     Text(
                       '200 ₽',
-                      style: TextStyle(
-                          color: Color(0xFFF7FF88),
-                          fontSize: 20
-                      ),
+                      style: TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                     )
                   ],
                 ),
@@ -225,6 +251,17 @@ class Item3 extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/images/item3.png"),
+                Positioned(
+                  right: 25,
+                  top: 25,
+                  child: FavoriteButton(
+                    isFavorite: false,
+                    iconSize: 30,
+                    iconDisabledColor: Colors.white,
+                    valueChanged: (_isFavorite) {
+                    },
+                  ),
+                ),
               ],
             ),
             Column(
@@ -285,10 +322,7 @@ class Item3 extends StatelessWidget {
                     Spacer(),
                     Text(
                       '195 ₽',
-                      style: TextStyle(
-                          color: Color(0xFFF7FF88),
-                          fontSize: 20
-                      ),
+                      style: TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                     )
                   ],
                 ),
@@ -325,6 +359,17 @@ class Item4 extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/images/item4.png"),
+                Positioned(
+                  right: 25,
+                  top: 25,
+                  child: FavoriteButton(
+                    isFavorite: false,
+                    iconSize: 30,
+                    iconDisabledColor: Colors.white,
+                    valueChanged: (_isFavorite) {
+                    },
+                  ),
+                ),
               ],
             ),
             Column(
@@ -385,10 +430,7 @@ class Item4 extends StatelessWidget {
                     Spacer(),
                     Text(
                       '2090 ₽',
-                      style: TextStyle(
-                          color: Color(0xFFF7FF88),
-                          fontSize: 20
-                      ),
+                      style: TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                     )
                   ],
                 ),

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/pages/main/profile/bookingHistory.dart';
+import 'package:marmelad/pages/main/visitDatePage.dart';
 import '../../widgets/booking.dart';
 import '../../widgets/bar/bookingBar.dart';
 
@@ -31,11 +33,20 @@ class BookingPage extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    Icon(
-                      Icons.more_time_rounded,
-                      size: 24,
-                      color: Color(0xFFFFFFFF).withOpacity(0.5),
-                    )
+                    IconButton(
+                        icon: Icon(
+                          Icons.more_time_rounded,
+                          size: 24,
+                          color: Color(0xFFFFFFFF).withOpacity(0.5),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => bookingHistory(),
+                            ),
+                          );
+                        }),
                   ],
                 ),
               ),
@@ -45,8 +56,8 @@ class BookingPage extends StatelessWidget {
             Spacer(),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => Main()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => VisitDatePage()));
               },
               clipBehavior: Clip.antiAlias,
               style: ElevatedButton.styleFrom(

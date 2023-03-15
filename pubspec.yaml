@@ -43,6 +43,8 @@ dependencies:
   cloud_firestore: ^4.4.2
   expandable_page_view: ^1.0.17
   expansion_widget: ^0.0.3
+  favorite_button: ^0.0.4
+  scrollable_clean_calendar: ^1.4.0
 
 
 dev_dependencies:

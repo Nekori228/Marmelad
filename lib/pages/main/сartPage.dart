@@ -4,8 +4,15 @@ import 'package:marmelad/pages/main/paymentPage.dart';
 import '../../widgets/profilewidgets/basket/basket.dart';
 import '../../widgets/profilewidgets/basket/basketItems.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +42,8 @@ class CartScreen extends StatelessWidget {
                     bottomRight: Radius.circular(0),
                     topLeft: Radius.circular(25),
                     bottomLeft: Radius.circular(0),
-                  ), color: Color(0xFFFFFFFF).withOpacity(0.05)),
+                  ),
+                  color: Color(0xFFFFFFFF).withOpacity(0.05)),
               child: Column(
                 children: [
                   Container(
@@ -44,7 +52,7 @@ class CartScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                           child: Text(
                             'Доставка',
                             style: TextStyle(
@@ -52,7 +60,19 @@ class CartScreen extends StatelessWidget {
                                 fontFamily: "Overpass-Bold",
                                 fontSize: 14),
                           ),
-                        )
+                        ),
+                        SizedBox(width: 20),
+                        Switch(
+                          value: isSwitched,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched = value;
+                              print(isSwitched);
+                            });
+                          },
+                          activeTrackColor: Color(0xFF646464).withOpacity(0.31),
+                          activeColor: Color(0xFFF7FF88),
+                        ),
                       ],
                     ),
                   ),
@@ -84,8 +104,10 @@ class CartScreen extends StatelessWidget {
                     margin: EdgeInsets.all(20),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => PaymentPage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaymentPage()));
                       },
                       clipBehavior: Clip.antiAlias,
                       style: ElevatedButton.styleFrom(

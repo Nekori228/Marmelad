@@ -10,8 +10,8 @@ class BookingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BookingPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BookingPage()));
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -59,8 +59,8 @@ class BookingWidget extends StatelessWidget {
                         color: Color(0xFFFFFFFF).withOpacity(0.5)),
                     Text(
                       '1 человек, сегодня в 12:00',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF).withOpacity(0.5)),
+                      style:
+                          TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5)),
                     )
                   ],
                 ),
@@ -73,16 +73,19 @@ class BookingWidget extends StatelessWidget {
                         color: Color(0xFFFFFFFF).withOpacity(0.5)),
                     Text(
                       'Иосифа Каролинского 4, 2 этаж',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF).withOpacity(0.5)),
+                      style:
+                          TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5)),
                     )
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 5, 0, 20),
-                child: Icon(CupertinoIcons.calendar_badge_minus,
-                  color: Color(0xFFF7FF88), size: 29,),
+                child: Icon(
+                  CupertinoIcons.calendar_badge_minus,
+                  color: Color(0xFFF7FF88),
+                  size: 29,
+                ),
               ),
             ],
           ),
