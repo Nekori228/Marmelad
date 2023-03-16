@@ -315,18 +315,16 @@ class _ViewItemState extends State<ViewItem> {
                   ),
                   Column(
                     children: [
-                      Container(
-                        width: 20,
-                        height: 10,
-                        color: Colors.blue,
+                      Text(
+                        'Напишите ваш отзыв',
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontFamily: "Overpass-Bold",
+                            fontSize: 22),
                       ),
                     ],
                   ),
                 ]),
-
-
-
-
               ],
             )),
           ),

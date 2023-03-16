@@ -145,33 +145,30 @@ class FeedbackPage extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: SizedBox(
-                    height: 50,
-                    child: TextField(
-                      cursorColor: Colors.black,
-                      style: TextStyle(color: Colors.white),
-                      maxLines: 6,
-                      minLines: 2,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        hintText: 'Классное заведение и приложение тоже очень понравилось',
-                        hintStyle: TextStyle(
-                            fontSize: 14,
-                            color: Color(0xFFFFFFFF).withOpacity(0.4),
-                            fontFamily: 'Poppins'),
-                        filled: true,
-                        fillColor: Color(0xFFF7FF88).withOpacity(0.2),
+                  child: TextField(
+                    cursorColor: Colors.black,
+                    style: TextStyle(color: Colors.white),
+                    maxLines: 6,
+                    minLines: 2,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      hintText: 'Классное заведение и приложение тоже очень понравилось',
+                      hintStyle: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFFFFFFFF).withOpacity(0.4),
+                          fontFamily: 'Poppins'),
+                      filled: true,
+                      fillColor: Color(0xFFF7FF88).withOpacity(0.2),
                     ),
                   ),
                 ),
