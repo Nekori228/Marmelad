@@ -11,6 +11,9 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   runApp(MaterialApp(
+    theme: ThemeData(
+        primaryColor: Color(0xFFF7FF88)
+    ),
     home: startScreen(),
   ));
 }
