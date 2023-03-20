@@ -77,7 +77,6 @@ class ProfilePage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          // padding: EdgeInsets.zero,
                         ),
                         child: Center(
                           child: Container(

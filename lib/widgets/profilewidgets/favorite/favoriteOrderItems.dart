@@ -59,12 +59,25 @@ class FavoriteOrderItems1 extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset("assets/images/favoriteButtom.png"),
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF7FF88),
+                              borderRadius: BorderRadius.circular(12)),
+                          child: Center(
+                            child: Text(
+                              '2',
+                              style: TextStyle(
+                                  fontSize: 16, color: Color(0xFF000000)),
+                            ),
+                          ),
+                        ),
                         Spacer(),
                         Text(
                           '600 ₽',
                           style:
-                          TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
+                              TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                         ),
                       ],
                     )
@@ -137,12 +150,25 @@ class FavoriteOrderItems2 extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset("assets/images/favoriteButtom.png"),
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF7FF88),
+                              borderRadius: BorderRadius.circular(12)),
+                          child: Center(
+                            child: Text(
+                              '2',
+                              style: TextStyle(
+                                  fontSize: 16, color: Color(0xFF000000)),
+                            ),
+                          ),
+                        ),
                         Spacer(),
                         Text(
                           '600 ₽',
                           style:
-                          TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
+                              TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                         ),
                       ],
                     )

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/appBar/orderAppBar.dart';
 import '../../../widgets/profilewidgets/order/orderItems.dart';
-import '../mainPage.dart';
 
 class OrderProfilePage extends StatefulWidget {
   const OrderProfilePage({Key? key}) : super(key: key);
@@ -34,7 +33,6 @@ class _OrderProfilePageState extends State<OrderProfilePage> {
           ),
         ),
       ),
-      bottomNavigationBar: bottomNavigation(),
     );
   }
 }
