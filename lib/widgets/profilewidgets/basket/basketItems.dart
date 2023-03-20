@@ -1,13 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../pages/main/viewItem.dart';
+import '../../countButton.dart';
+
 class BasketItems1 extends StatelessWidget {
   const BasketItems1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
@@ -17,58 +27,58 @@ class BasketItems1 extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       child: Row(
-          children: [
-            Image.asset("assets/images/item1_basket_favorite.png"),
-            SizedBox(width: 20),
-            Expanded(
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'ФРЕШ РОЛЛЫ С КРЕВЕТКОЙ',
+        children: [
+          Image.asset("assets/images/item1_basket_favorite.png"),
+          SizedBox(width: 20),
+          Expanded(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'ФРЕШ РОЛЛЫ С КРЕВЕТКОЙ',
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontFamily: "Overpass-Bold",
+                        fontSize: 14),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    '200гр',
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF).withOpacity(0.4),
+                        fontFamily: "Overpass-Bold",
+                        fontSize: 14),
+                  ),
+                  SizedBox(
+                    width: 140,
+                    height: 50,
+                    child: Text(
+                      'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
                       style: TextStyle(
-                          color: Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF).withOpacity(0.5),
                           fontFamily: "Overpass-Bold",
-                          fontSize: 14),
+                          fontSize: 12),
                     ),
-                    SizedBox(height: 5),
-                    Text(
-                      '200гр',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF).withOpacity(0.4),
-                          fontFamily: "Overpass-Bold",
-                          fontSize: 14),
-                    ),
-                    SizedBox(
-                      width: 140,
-                      height: 50,
-                      child: Text(
-                        'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
-                            fontFamily: "Overpass-Bold",
-                            fontSize: 12),
+                  ),
+                  SizedBox(height: 5),
+                  Row(
+                    children: [
+                      CountButton(),
+                      Spacer(),
+                      Text(
+                        '600 ₽',
+                        style:
+                            TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    Row(
-                      children: [
-                        Image.asset("assets/images/rm.png"),
-                        Spacer(),
-                        Text(
-                          '600 ₽',
-                          style:
-                              TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                    ],
+                  )
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -79,7 +89,14 @@ class BasketItems2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
@@ -126,12 +143,12 @@ class BasketItems2 extends StatelessWidget {
                   SizedBox(height: 5),
                   Row(
                     children: [
-                      Image.asset("assets/images/rm.png"),
+                      CountButton(),
                       Spacer(),
                       Text(
                         '600 ₽',
                         style:
-                        TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
+                            TextStyle(color: Color(0xFFF7FF88), fontSize: 20),
                       ),
                     ],
                   )
@@ -144,3 +161,4 @@ class BasketItems2 extends StatelessWidget {
     );
   }
 }
+

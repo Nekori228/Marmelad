@@ -24,7 +24,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               ProfileWidget(),
               Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 130, 0),
+                margin: EdgeInsets.fromLTRB(10, 0, 120, 0),
                 child: Column(
                   children: [
                     Container(

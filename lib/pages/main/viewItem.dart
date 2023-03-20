@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/%D1%81artPage.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
+import '../../widgets/countButton.dart';
 
 class ViewItem extends StatefulWidget {
   const ViewItem({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _ViewItemState extends State<ViewItem> {
     isReview = 1;
     reviewObjects = [
       Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Напишите ваш отзыв',
@@ -34,6 +36,30 @@ class _ViewItemState extends State<ViewItem> {
                 fontFamily: "Overpass-Bold",
                 fontSize: 22),
           ),
+
+          SizedBox(
+            height: 120,
+            child: TextField(
+              cursorColor: Colors.black,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                    BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                    BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  filled: true,
+                  hintText: 'Все понравилось :3'),
+              maxLines: null,
+              expands: true,
+              keyboardType: TextInputType.multiline,
+            ),
+          )
         ],
       ),
     ];
@@ -67,7 +93,7 @@ class _ViewItemState extends State<ViewItem> {
                       fontSize: 20),
                 ),
                 SizedBox(height: 10),
-                Image.asset("assets/images/rm.png"),
+                CountButton(),
               ],
             ),
           ],
@@ -278,7 +304,6 @@ class _ViewItemState extends State<ViewItem> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: ViewItemAppBar(),
         backgroundColor: Color(0xFF000000),
