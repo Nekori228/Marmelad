@@ -1,7 +1,9 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/%D1%81artPage.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
 import '../../widgets/countButton.dart';
@@ -20,6 +22,8 @@ class _ViewItemState extends State<ViewItem> {
 
   List<Widget> reviewObjects = [];
 
+  get rating => null;
+
   void setPage(index) {
     selectedPage = index;
     pageController.animateToPage(index,
@@ -36,30 +40,46 @@ class _ViewItemState extends State<ViewItem> {
                 fontFamily: "Overpass-Bold",
                 fontSize: 22),
           ),
-
           SizedBox(
             height: 120,
-            child: TextField(
-              cursorColor: Colors.black,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                    BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-                    borderRadius: BorderRadius.circular(25),
+            child: DottedBorder(
+              color: Color(0xFFFFFFFF).withOpacity(0.5),
+              strokeWidth: 5,
+              dashPattern: [30, 25],
+              borderType: BorderType.RRect,
+              radius: Radius.circular(14),
+              child: TextField(
+                cursorColor: Colors.black,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                  hintText: 'Все понравилось :3',
+                  hintStyle: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                    BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  filled: true,
-                  hintText: 'Все понравилось :3'),
-              maxLines: null,
-              expands: true,
-              keyboardType: TextInputType.multiline,
+                ),
+                maxLines: null,
+                expands: true,
+                keyboardType: TextInputType.multiline,
+              ),
             ),
-          )
+          ),
+          // SmoothStarRating(
+          //     allowHalfRating: false,
+          //     onRated: (v) {
+          //     },
+          //     starCount: 5,
+          //     rating: rating,
+          //     size: 40.0,
+          //     isReadOnly:true,
+          //     filledIconData: Icons.blur_off,
+          //     halfFilledIconData: Icons.blur_on,
+          //     color: Colors.green,
+          //     borderColor: Colors.green,
+          //     spacing:0.0
+          // )
+
         ],
       ),
     ];

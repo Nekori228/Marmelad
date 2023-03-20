@@ -45,6 +45,8 @@ dependencies:
   expansion_widget: ^0.0.3
   favorite_button: ^0.0.4
   scrollable_clean_calendar: ^1.4.0
+  dotted_border: ^2.0.0+3
+  smooth_star_rating: ^1.1.1
 
 
 
