@@ -3,8 +3,15 @@ import 'package:expansion_widget/expansion_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class QuestionsItem extends StatelessWidget {
+class QuestionsItem extends StatefulWidget {
   const QuestionsItem({Key? key}) : super(key: key);
+
+  @override
+  State<QuestionsItem> createState() => _QuestionsItemState();
+}
+
+class _QuestionsItemState extends State<QuestionsItem> {
+  List<String> users = <String>["Tom", "Alice", "Bob", "Sam", "Kate"];
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +46,7 @@ class QuestionsItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Как долго готовится заказ?',
+                        'Что значит «лаунж-бар»?',
                         style: TextStyle(
                             color:
                             Color(0xFFFFFFFF).withOpacity(0.47),
@@ -79,7 +86,7 @@ class QuestionsItem extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Заказ готовится как можно скорее loremloremloremloremloremlorem',
+                    'ЗаказF готовится как можно скорее loremloremloremloremloremlorem',
                     style: TextStyle(
                         color: Color(0xFFFFFFFF).withOpacity(0.47),
                         fontSize: 16,

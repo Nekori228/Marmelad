@@ -8,16 +8,16 @@ import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
 import '../../widgets/countButton.dart';
 
-class ViewItem extends StatefulWidget {
-  const ViewItem({Key? key}) : super(key: key);
+class ViewItem3 extends StatefulWidget {
+  const ViewItem3({Key? key}) : super(key: key);
 
   @override
-  State<ViewItem> createState() => _ViewItemState();
+  State<ViewItem3> createState() => _ViewItem3State();
 }
 
 var pageController = PageController();
 
-class _ViewItemState extends State<ViewItem> {
+class _ViewItem3State extends State<ViewItem3> {
   var isReview = 0;
 
   List<Widget> reviewObjects = [];
@@ -96,7 +96,7 @@ class _ViewItemState extends State<ViewItem> {
           children: [
             Expanded(
               child: Text(
-                'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
+                'Водка "Белуга" относится к классу элитных алкогольных напитков',
                 style: TextStyle(
                     color: Color(0xFFFFFFFF).withOpacity(0.47),
                     fontFamily: "Overpass-SemiBold",
@@ -106,7 +106,7 @@ class _ViewItemState extends State<ViewItem> {
             Column(
               children: [
                 Text(
-                  '300 ₽',
+                  '195 ₽',
                   style: TextStyle(
                       color: Color(0xFFF7FF88),
                       fontFamily: "Overpass-SemiBold",
@@ -339,12 +339,12 @@ class _ViewItemState extends State<ViewItem> {
                   SizedBox(
                       height: 250,
                       child: Center(
-                          child: Image.asset('assets/images/view_item.png'))),
+                          child: Image.asset('assets/images/item3.png'))),
                   SizedBox(height: 50),
                   Row(
                     children: [
                       Text(
-                        'Фреш роллы с креветкой',
+                        'ВОДКА BELUGA',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontFamily: "Overpass-Bold",
@@ -352,7 +352,7 @@ class _ViewItemState extends State<ViewItem> {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        '200гр',
+                        '40ml',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF).withOpacity(0.36),
                             fontFamily: "Overpass-Bold",
@@ -370,9 +370,9 @@ class _ViewItemState extends State<ViewItem> {
                       ),
                       SizedBox(width: 2),
                       Text(
-                        "4.8",
+                        "4.1",
                         style:
-                            TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
+                        TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
                       ),
                       SizedBox(width: 10),
                       Icon(
@@ -384,7 +384,7 @@ class _ViewItemState extends State<ViewItem> {
                       Text(
                         "Вкусно",
                         style:
-                            TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
+                        TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
                       ),
                     ],
                   ),
@@ -398,35 +398,35 @@ class _ViewItemState extends State<ViewItem> {
         ),
         bottomNavigationBar: isReview == 0
             ? Container(
-                height: 90,
-                color: Colors.black12,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartScreen()));
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: <Widget>[
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFF7FF88),
-                            shape: const CircleBorder(),
-                            padding: const EdgeInsets.all(16),
-                          ),
-                          onPressed: () {},
-                          child: const Icon(
-                            Icons.store,
-                            size: 35,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
+          height: 90,
+          color: Colors.black12,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
+            },
+            child: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Column(
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFF7FF88),
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                    ),
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.store,
+                      size: 35,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              )
+                ],
+              ),
+            ),
+          ),
+        )
             : SizedBox());
   }
 }

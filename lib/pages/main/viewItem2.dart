@@ -8,16 +8,16 @@ import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
 import '../../widgets/countButton.dart';
 
-class ViewItem extends StatefulWidget {
-  const ViewItem({Key? key}) : super(key: key);
+class ViewItem2 extends StatefulWidget {
+  const ViewItem2({Key? key}) : super(key: key);
 
   @override
-  State<ViewItem> createState() => _ViewItemState();
+  State<ViewItem2> createState() => _ViewItem2State();
 }
 
 var pageController = PageController();
 
-class _ViewItemState extends State<ViewItem> {
+class _ViewItem2State extends State<ViewItem2> {
   var isReview = 0;
 
   List<Widget> reviewObjects = [];
@@ -96,7 +96,7 @@ class _ViewItemState extends State<ViewItem> {
           children: [
             Expanded(
               child: Text(
-                'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
+                'Классическое блюдо американской кухни',
                 style: TextStyle(
                     color: Color(0xFFFFFFFF).withOpacity(0.47),
                     fontFamily: "Overpass-SemiBold",
@@ -106,7 +106,7 @@ class _ViewItemState extends State<ViewItem> {
             Column(
               children: [
                 Text(
-                  '300 ₽',
+                  '200 ₽',
                   style: TextStyle(
                       color: Color(0xFFF7FF88),
                       fontFamily: "Overpass-SemiBold",
@@ -339,12 +339,12 @@ class _ViewItemState extends State<ViewItem> {
                   SizedBox(
                       height: 250,
                       child: Center(
-                          child: Image.asset('assets/images/view_item.png'))),
+                          child: Image.asset('assets/images/item2.png'))),
                   SizedBox(height: 50),
                   Row(
                     children: [
                       Text(
-                        'Фреш роллы с креветкой',
+                        'ЧИЗКЕЙК',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontFamily: "Overpass-Bold",

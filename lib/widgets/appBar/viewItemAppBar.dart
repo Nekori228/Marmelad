@@ -10,7 +10,7 @@ class ViewItemAppBar extends StatelessWidget with PreferredSizeWidget {
       iconTheme: IconThemeData(color: Colors.white),
       title: IconButton(
           icon: Icon(
-            Icons.arrow_circle_left,
+            Icons.add_circle,
             size: 34,
           ),
           onPressed: () {
@@ -27,7 +27,7 @@ class ViewItemAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         IconButton(
             icon: Icon(
-              Icons.arrow_circle_left,
+              Icons.circle_notifications,
               size: 34,
             ),
             onPressed: () {
