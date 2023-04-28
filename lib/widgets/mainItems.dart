@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/main/viewItem.dart';
+import '../pages/main/viewItem2.dart';
+import '../pages/main/viewItem3.dart';
+import '../pages/main/viewItem4.dart';
 
 class Item1 extends StatelessWidget {
   const Item1({Key? key}) : super(key: key);
@@ -125,7 +128,14 @@ class Item2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem2(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
@@ -233,7 +243,14 @@ class Item3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem3(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),
@@ -341,7 +358,14 @@ class Item4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewItem4(),
+          ),
+        );
+      },
       clipBehavior: Clip.antiAlias,
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFFFFFFFF).withOpacity(0),

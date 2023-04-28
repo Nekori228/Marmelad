@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CountButton extends StatefulWidget {
-  int counter = 2;
+  int counter = 1;
 
   @override
   State<CountButton> createState() => _CountButtonState();

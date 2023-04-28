@@ -1,27 +1,23 @@
-import 'dart:convert';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:collection/collection.dart'; // You have to add this manually, for some reason it cannot be added automatically
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/%D1%81artPage.dart';
-import 'package:marmelad/pages/main/viewComments.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
 import '../../widgets/countButton.dart';
 
-class ViewItem extends StatefulWidget {
-  const ViewItem({Key? key}) : super(key: key);
+class ViewItem4 extends StatefulWidget {
+  const ViewItem4({Key? key}) : super(key: key);
 
   @override
-  State<ViewItem> createState() => _ViewItemState();
+  State<ViewItem4> createState() => _ViewItem4State();
 }
 
 var pageController = PageController();
 
-class _ViewItemState extends State<ViewItem> {
+class _ViewItem4State extends State<ViewItem4> {
   var isReview = 0;
 
   List<Widget> reviewObjects = [];
@@ -30,34 +26,38 @@ class _ViewItemState extends State<ViewItem> {
 
   void setPage(index) {
     selectedPage = index;
-    pageController.animateToPage(index, duration: const Duration(seconds: 1), curve: Curves.ease);
+    pageController.animateToPage(index,
+        duration: Duration(seconds: 1), curve: Curves.ease);
     isReview = 1;
     reviewObjects = [
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10),
-          const Text(
+          Text(
             'Напишите ваш отзыв',
-            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 22),
+            style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontFamily: "Overpass-Bold",
+                fontSize: 22),
           ),
           SizedBox(
             height: 120,
             child: DottedBorder(
-              color: const Color(0xFFFFFFFF).withOpacity(0.5),
+              color: Color(0xFFFFFFFF).withOpacity(0.5),
               strokeWidth: 5,
-              dashPattern: const [30, 25],
+              dashPattern: [30, 25],
               borderType: BorderType.RRect,
-              radius: const Radius.circular(14),
+              radius: Radius.circular(14),
               child: TextField(
                 cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  contentPadding: const EdgeInsets.fromLTRB(15, 10, 10, 10),
+                  contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
                   hintText: 'Все понравилось :3',
                   hintStyle: TextStyle(
-                    color: const Color(0xFFFFFFFF).withOpacity(0.47),
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
                   ),
                 ),
                 maxLines: null,
@@ -80,7 +80,6 @@ class _ViewItemState extends State<ViewItem> {
           //     borderColor: Colors.green,
           //     spacing:0.0
           // )
-
         ],
       ),
     ];
@@ -97,17 +96,23 @@ class _ViewItemState extends State<ViewItem> {
           children: [
             Expanded(
               child: Text(
-                'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
-                style: TextStyle(color: const Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 16),
+                'Водка "Белуга" относится к классу элитных алкогольных напитков',
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 16),
               ),
             ),
             Column(
               children: [
                 Text(
-                  '300 ₽',
-                  style: TextStyle(color: Color(0xFFF7FF88), fontFamily: "Overpass-SemiBold", fontSize: 20),
+                  '2090 ₽',
+                  style: TextStyle(
+                      color: Color(0xFFF7FF88),
+                      fontFamily: "Overpass-SemiBold",
+                      fontSize: 20),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 CountButton(),
               ],
             ),
@@ -125,11 +130,11 @@ class _ViewItemState extends State<ViewItem> {
                 fontSize: 14,
                 fontFamily: "Overpass-SemiBold",
                 fontWeight: FontWeight.w600,
-                color: const Color(0xFFFFFFFF).withOpacity(0.5)),
+                color: Color(0xFFFFFFFF).withOpacity(0.5)),
           ),
         ),
-        const SizedBox(height: 30),
-        const Text(
+        SizedBox(height: 30),
+        Text(
           'Описание',
           style: TextStyle(
               color: Color(0xFFFFFFFF),
@@ -331,17 +336,15 @@ class _ViewItemState extends State<ViewItem> {
               child: (Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: Image.asset('assets/images/view_item.png')),
-                  const SizedBox(height: 50),
                   SizedBox(
                       height: 250,
                       child: Center(
-                          child: Image.asset('assets/images/view_item.png'))),
+                          child: Image.asset('assets/images/item4.png'))),
                   SizedBox(height: 50),
                   Row(
                     children: [
                       Text(
-                        'Фреш роллы с креветкой',
+                        'ВИНО АЛЬМА ВЕЛЛИ',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontFamily: "Overpass-Bold",
@@ -349,7 +352,7 @@ class _ViewItemState extends State<ViewItem> {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        '200гр',
+                        '750ml',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF).withOpacity(0.36),
                             fontFamily: "Overpass-Bold",
@@ -367,9 +370,9 @@ class _ViewItemState extends State<ViewItem> {
                       ),
                       SizedBox(width: 2),
                       Text(
-                        "4.8",
+                        "4.1",
                         style:
-                            TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
+                        TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
                       ),
                       SizedBox(width: 10),
                       Icon(
@@ -381,7 +384,7 @@ class _ViewItemState extends State<ViewItem> {
                       Text(
                         "Вкусно",
                         style:
-                            TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
+                        TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
                       ),
                     ],
                   ),
@@ -395,48 +398,35 @@ class _ViewItemState extends State<ViewItem> {
         ),
         bottomNavigationBar: isReview == 0
             ? Container(
-                height: 90,
-                color: Colors.black12,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartScreen()));
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: <Widget>[
-                        //ElevatedButton(
-                        //                           style: ElevatedButton.styleFrom(
-                        //                             backgroundColor: Color(0xFFF7FF88),
-                        //                             shape: const CircleBorder(),
-                        //                             padding: const EdgeInsets.all(16),
-                        //                           ),
-                        //                           onPressed: () {
-                        //                             Navigator.push(
-                        //                               context,
-                        //                               MaterialPageRoute(
-                        //                                 builder: (context) => ViewComment(),
-                        //                               ),
-                        //                             );
-                        //                           },
-                        //                           child: const Icon(
-                        //                             Icons.store,
-                        //                             size: 35,
-                        //                             color: Colors.black,
-                        //                           ),
-                        //                         ),
-                        Icon(
-                          Icons.store,
-                          color: Theme.of(context).accentColor,
-                          size: 60,
-                        ),
-                        Text('close'),
-                      ],
+          height: 90,
+          color: Colors.black12,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
+            },
+            child: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Column(
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFF7FF88),
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                    ),
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.store,
+                      size: 35,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              )
-            : const SizedBox());
+                ],
+              ),
+            ),
+          ),
+        )
+            : SizedBox());
   }
 }
