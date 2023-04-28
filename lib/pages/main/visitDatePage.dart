@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/globals.dart';
+import 'package:marmelad/pages/main/choosePlace.dart';
 import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
 import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
 import 'package:scrollable_clean_calendar/utils/enums.dart';
@@ -13,6 +15,7 @@ class VisitDatePage extends StatefulWidget {
 
 class _VisitDatePageState extends State<VisitDatePage> {
   dynamic maxDate = 0;
+  var selectDate;
   late final calendarController;
 
   @override
@@ -25,12 +28,13 @@ class _VisitDatePageState extends State<VisitDatePage> {
     calendarController = CleanCalendarController(
       minDate: DateTime.now(),
       maxDate: maxDate,
-      onRangeSelected: (firstDate, secondDate) {
+      onDayTapped: (date) {
+        selectDate = '${date.day} ${dateMonth[date.month]!}';
+        print(date);
+        setState(() {});
       },
-      onDayTapped: (date) {},
+      rangeMode: false,
       // readOnly: true,
-      onPreviousMinDateTapped: (date) {},
-      onAfterMaxDateTapped: (date) {},
       weekdayStart: DateTime.monday,
       // initialFocusDate: DateTime(2023, 5),
       // initialDateSelected: DateTime(2022, 3, 15),
@@ -42,7 +46,6 @@ class _VisitDatePageState extends State<VisitDatePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Scrollable Clean Calendar',
       theme: ThemeData(
         colorScheme: const ColorScheme(
           primary: Color(0xFFF7FF88),
@@ -60,20 +63,61 @@ class _VisitDatePageState extends State<VisitDatePage> {
           brightness: Brightness.light,
         ),
       ),
-      home: Scaffold(
-        backgroundColor: Color(0xFF000000),
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(100.0), child: VisitDateAppBar()),
-        // floatingActionButton: FloatingActionButton(
-        //   child: const Icon(Icons.arrow_downward),
-        //   onPressed: () {
-        //     calendarController.jumpToMonth(date: DateTime(2022, 8));
-        //   },
-        // ),
-        body: ScrollableCleanCalendar(
-          calendarController: calendarController,
-          layout: Layout.BEAUTY,
-          calendarCrossAxisSpacing: 0,
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: Color(0xFF000000),
+          appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
+          // floatingActionButton: FloatingActionButton(
+          //   child: const Icon(Icons.arrow_downward),
+          //   onPressed: () {
+          //     calendarController.jumpToMonth(date: DateTime(2022, 8));
+          //   },
+          // ),
+          body: Column(
+            children: [
+              Expanded(
+                child: ScrollableCleanCalendar(
+                  calendarController: calendarController,
+                  layout: Layout.BEAUTY,
+                  calendarCrossAxisSpacing: 0,
+                ),
+              ),
+              selectDate != null ? Container(margin: EdgeInsets.only(bottom: 50) ,child: Text(selectDate, style: TextStyle(color: Colors.white
+                  .withOpacity(0.15),
+                  fontSize: 60,
+                  fontWeight: FontWeight.w700))):
+              Container(),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ChoosePlacePage()));
+                },
+                clipBehavior: Clip.antiAlias,
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  padding: EdgeInsets.zero,
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset("assets/images/button.png", fit: BoxFit.cover),
+                    Text(
+                      'ДАЛЕЕ',
+                      style: TextStyle(
+                          letterSpacing: 3.75,
+                          fontSize: 24,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

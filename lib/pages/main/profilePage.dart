@@ -16,29 +16,29 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xFF000000),
+        backgroundColor: const Color(0xFF000000),
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ProfileWidget(),
+              const ProfileWidget(),
               Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 120, 0),
+                margin: const EdgeInsets.fromLTRB(10, 0, 120, 0),
                 child: Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => OrderProfilePage()));
+                                  builder: (context) => const OrderProfilePage()));
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                          backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -46,8 +46,8 @@ class ProfilePage extends StatelessWidget {
                         ),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                            child: const Text(
                               'Заказы',
                               style: TextStyle(
                                 fontSize: 16,
@@ -61,27 +61,27 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => FavoritesProfilePage(),
+                              builder: (context) => const FavoritesProfilePage(),
                             ),
                           );
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                          backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                            child: const Text(
                               'Избранное',
                               style: TextStyle(
                                 fontSize: 16,
@@ -95,17 +95,17 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => bookingHistory()));
+                                  builder: (context) => const bookingHistory()));
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                          backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -113,8 +113,8 @@ class ProfilePage extends StatelessWidget {
                         ),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                            child: const Text(
                               'История бронирования',
                               style: TextStyle(
                                 fontSize: 16,
@@ -128,19 +128,19 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => questionsProfilePage(),
+                              builder: (context) => const questionsProfilePage(),
                             ),
                           );
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                          backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -148,8 +148,8 @@ class ProfilePage extends StatelessWidget {
                         ),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                            child: const Text(
                               'Часто задаваемые вопросы',
                               style: TextStyle(
                                 fontSize: 16,
@@ -163,19 +163,19 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => FeedbackPage(),
+                              builder: (context) => const FeedbackPage(),
                             ),
                           );
                         },
                         clipBehavior: Clip.antiAlias,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                          backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -183,8 +183,8 @@ class ProfilePage extends StatelessWidget {
                         ),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                            child: const Text(
                               'Обратная связь',
                               style: TextStyle(
                                 fontSize: 16,
@@ -200,22 +200,22 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 margin: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.2),
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => startScreen()));
+                              builder: (context) => const startScreen()));
                     },
                     clipBehavior: Clip.antiAlias,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFD9D9D9).withOpacity(0.1),
+                      backgroundColor: const Color(0xFFD9D9D9).withOpacity(0.1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -223,8 +223,8 @@ class ProfilePage extends StatelessWidget {
                     ),
                     child: Center(
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                        child: Text(
+                        margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                        child: const Text(
                           'Выход из аккаунта',
                           style: TextStyle(
                             fontSize: 16,
@@ -239,7 +239,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Text(
                   'Политика конфидициальности',
                   style: TextStyle(
@@ -247,7 +247,7 @@ class ProfilePage extends StatelessWidget {
                     fontSize: 12,
                     fontFamily: "Overpass-Bold",
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFFFFFFFF).withOpacity(0.5),
+                    color: const Color(0xFFFFFFFF).withOpacity(0.5),
                   ),
                 ),
               ),
@@ -258,7 +258,7 @@ class ProfilePage extends StatelessWidget {
                   fontSize: 12,
                   fontFamily: "Overpass-Bold",
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFFFFFFFF).withOpacity(0.5),
+                  color: const Color(0xFFFFFFFF).withOpacity(0.5),
                 ),
               )
             ],

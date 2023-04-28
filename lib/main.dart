@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/first/signUp.dart';
 // import 'package:marmelad/firebase_options.dart';
 import 'package:marmelad/pages/first/startsScreen.dart';
@@ -10,6 +11,7 @@ void main() async {
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
+  initPrefs();
   runApp(MaterialApp(
     home: startScreen(),
   ));
