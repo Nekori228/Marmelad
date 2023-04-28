@@ -3,6 +3,7 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/%D1%81artPage.dart';
+import 'package:marmelad/pages/main/viewComments.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
@@ -415,7 +416,14 @@ class _ViewItemState extends State<ViewItem> {
                             shape: const CircleBorder(),
                             padding: const EdgeInsets.all(16),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViewComment(),
+                              ),
+                            );
+                          },
                           child: const Icon(
                             Icons.store,
                             size: 35,

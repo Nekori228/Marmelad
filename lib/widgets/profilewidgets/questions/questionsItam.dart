@@ -11,7 +11,6 @@ class QuestionsItem extends StatefulWidget {
 }
 
 class _QuestionsItemState extends State<QuestionsItem> {
-  List<String> users = <String>["Tom", "Alice", "Bob", "Sam", "Kate"];
 
   @override
   Widget build(BuildContext context) {
