@@ -40,6 +40,7 @@ dependencies:
   firebase_core: ^2.5.0
   firebase_auth: ^4.0.2
   email_validator: ^2.1.17
+  enough_mail: ^2.1.1
   cloud_firestore: ^4.4.2
   expandable_page_view: ^1.0.17
   expansion_widget: ^0.0.3

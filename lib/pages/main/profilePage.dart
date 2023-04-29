@@ -134,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const questionsProfilePage(),
+                              builder: (context) => questionsProfilePage(),
                             ),
                           );
                         },
@@ -169,7 +169,7 @@ class ProfilePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const FeedbackPage(),
+                              builder: (context) => FeedbackPage(),
                             ),
                           );
                         },

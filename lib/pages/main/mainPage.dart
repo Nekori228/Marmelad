@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/%D1%81artPage.dart';
 import 'package:marmelad/pages/main/profilePage.dart';
 import 'package:marmelad/widgets/theme.dart';
@@ -25,7 +26,12 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: themeMarmelad,
-      home: bottomNavigation(),
+      home: StatefulBuilder(
+        builder: (context, setStateMainPage) {
+          setStateMainPageCallback = setStateMainPage;
+          return bottomNavigation();
+        }
+      ),
     );
   }
 }
@@ -39,7 +45,6 @@ class bottomNavigation extends StatefulWidget {
 
 class _pagesState extends State<bottomNavigation> {
 
-  int _selectedPage = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeMainPage(),
     CartScreen(),
@@ -48,9 +53,9 @@ class _pagesState extends State<bottomNavigation> {
   ];
 
   void onSelectTab(int index) {
-    if (_selectedPage == index) return;
+    if (selectedPageBottomBar == index) return;
     setState(() {
-      _selectedPage = index;
+      selectedPageBottomBar = index;
     });
   }
 
@@ -60,13 +65,13 @@ class _pagesState extends State<bottomNavigation> {
       home: Scaffold(
         backgroundColor: Colors.black,
         body:  Center(
-          child: _widgetOptions[_selectedPage],
+          child: _widgetOptions[selectedPageBottomBar],
         ),
         bottomNavigationBar: BottomNavigationBar(
           unselectedItemColor: Color(0xFF858582),
           backgroundColor: Colors.black,
           selectedItemColor: Color(0xFFF7FF88),
-          currentIndex: _selectedPage,
+          currentIndex: selectedPageBottomBar,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(

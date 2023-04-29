@@ -91,7 +91,7 @@ class _VisitDatePageState extends State<VisitDatePage> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ChoosePlacePage()));
+                      MaterialPageRoute(builder: (context) => ChoosePlacePage(selectDate: selectDate,)));
                 },
                 clipBehavior: Clip.antiAlias,
                 style: ElevatedButton.styleFrom(

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +8,6 @@ import 'package:marmelad/pages/main/%D1%81artPage.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
-import '../../widgets/countButton.dart';
 
 class ViewItem4 extends StatefulWidget {
   const ViewItem4({Key? key}) : super(key: key);
@@ -20,9 +21,9 @@ var pageController = PageController();
 class _ViewItem4State extends State<ViewItem4> {
   var isReview = 0;
 
-  List<Widget> reviewObjects = [];
+  int counter = 1;
 
-  get rating => null;
+  List<Widget> reviewObjects = [];
 
   void setPage(index) {
     selectedPage = index;
@@ -113,7 +114,49 @@ class _ViewItem4State extends State<ViewItem4> {
                       fontSize: 20),
                 ),
                 SizedBox(height: 10),
-                CountButton(),
+                StatefulBuilder(builder: (context, setStateCount) {
+                  return Container(
+                    height: 35,
+                    decoration: BoxDecoration(color: Color(0xFFF7FF88), borderRadius: BorderRadius.circular(12)),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          child: GestureDetector(
+                            onTap: () => setState(() {
+                              if (counter - 1 > 0) {
+                                counter = counter - 1;
+                                setStateCount(() {});
+                              }
+                            }),
+                            child: Icon(
+                              Icons.remove,
+                              color: Color(0xFF000000),
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            '${counter}',
+                            style: TextStyle(fontSize: 16, color: Color(0xFF000000)),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          child: GestureDetector(
+                            onTap: () => setState(() {
+                              counter += 1;
+                              setStateCount(() {});
+                            }),
+                            child: Icon(Icons.add, color: Color(0xFF000000), size: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
               ],
             ),
           ],
@@ -344,7 +387,7 @@ class _ViewItem4State extends State<ViewItem4> {
                   Row(
                     children: [
                       Text(
-                        'ВИНО АЛЬМА ВЕЛЛИ',
+                        'Вино АЛЬМА ВЕЛЛИ',
                         style: TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontFamily: "Overpass-Bold",
@@ -396,32 +439,30 @@ class _ViewItem4State extends State<ViewItem4> {
             ),
           ),
         ),
-        bottomNavigationBar: isReview == 0
+        bottomNavigationBar: card.firstWhere((element) => element['name'] == 'Вино АЛЬМА ВЕЛЛИ', orElse: () {return null;}) == null
             ? Container(
           height: 90,
           color: Colors.black12,
           child: InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartScreen()));
+              card.firstWhere((element) => element['name'] == 'Вино АЛЬМА ВЕЛЛИ', orElse: () {
+                card.add({
+                  'name': 'Вино АЛЬМА ВЕЛЛИ',
+                  'description': 'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                  'weight': '750 ml',
+                  'count': counter,
+                  'price': 2090
+                });
+              });
+              prefs.setString('card', jsonEncode(card));
+              print(card);
+              setState(() {});
             },
             child: Padding(
               padding: EdgeInsets.only(top: 8.0),
               child: Column(
                 children: <Widget>[
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFF7FF88),
-                      shape: const CircleBorder(),
-                      padding: const EdgeInsets.all(16),
-                    ),
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.store,
-                      size: 35,
-                      color: Colors.black,
-                    ),
-                  ),
+                  Expanded(child: Image.asset('assets/images/buy.png')),
                 ],
               ),
             ),

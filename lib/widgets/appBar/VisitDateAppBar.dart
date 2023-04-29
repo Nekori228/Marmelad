@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 class VisitDateAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return AppBar(
       toolbarHeight: 85,
       backgroundColor: Colors.black,

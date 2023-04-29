@@ -33,8 +33,6 @@ class Order912ProfilePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              FavoriteOrderItems1(),
-              SizedBox(height: 30),
               FavoriteOrderItems2(),
               SizedBox(height: 30),
               Container(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class FavoriteAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return AppBar(
       backgroundColor: Colors.black,
       centerTitle: false,

@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/globals.dart';
 
 import '../pages/main/viewItem.dart';
 import '../pages/main/viewItem2.dart';
@@ -30,8 +33,7 @@ class Item1 extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.03),
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
         child: Column(
           children: [
             Stack(
@@ -42,10 +44,37 @@ class Item1 extends StatelessWidget {
                   right: 25,
                   top: 25,
                   child: FavoriteButton(
-                    isFavorite: false,
+                    isFavorite: favourites.firstWhere((element) => element['name'] == 'Фреш роллы с креветкой', orElse: () {
+                          return false;
+                        }) !=
+                        false,
                     iconSize: 30,
                     iconDisabledColor: Colors.white,
-                    valueChanged: (_isFavorite) {
+                    valueChanged: (isFavorite) {
+                      if (isFavorite == true) {
+                        favourites.firstWhere((element) => element['name'] == 'Фреш роллы с креветкой', orElse: () {
+                          favourites.add({
+                            'name': 'Фреш роллы с '
+                                'креветкой',
+                            'description':
+                                'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                            'weight': '200 гр',
+                            'count': 1,
+                            'price': 300
+                          });
+                        });
+                        prefs.setString('favourites', jsonEncode(favourites));
+                        print(favourites);
+                      } else {
+                        for (var i = 0; i < favourites.length; i++) {
+                          if (favourites[i]['name'] == 'Фреш роллы с креветкой') {
+                            favourites.removeAt(i);
+                            prefs.setString('favourites', jsonEncode(favourites));
+                            print(favourites);
+                            break;
+                          }
+                        }
+                      }
                     },
                   ),
                 ),
@@ -62,19 +91,13 @@ class Item1 extends StatelessWidget {
                         children: [
                           Text(
                             "ФРЕШ РОЛЛЫ С КРЕВЕТКОЙ",
-                            style: TextStyle(
-                                color: Color(0xFFFFFFFF),
-                                fontFamily: "Overpass-Bold",
-                                fontSize: 16),
+                            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 16),
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             child: Text(
                               "200гр",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
-                                  fontFamily: "Overpass-Bold",
-                                  fontSize: 14),
+                              style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.3), fontFamily: "Overpass-Bold", fontSize: 14),
                             ),
                           )
                         ],
@@ -100,10 +123,7 @@ class Item1 extends StatelessWidget {
                       height: 60,
                       child: Text(
                         'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
-                            fontFamily: "Overpass-SemiBold",
-                            fontSize: 16),
+                        style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5), fontFamily: "Overpass-SemiBold", fontSize: 16),
                       ),
                     ),
                     Spacer(),
@@ -145,8 +165,7 @@ class Item2 extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.03),
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
         child: Column(
           children: [
             Stack(
@@ -157,10 +176,36 @@ class Item2 extends StatelessWidget {
                   right: 25,
                   top: 25,
                   child: FavoriteButton(
-                    isFavorite: false,
+                    isFavorite: favourites.firstWhere((element) => element['name'] == 'Чизкейк', orElse: () {
+                          return false;
+                        }) !=
+                        false,
                     iconSize: 30,
                     iconDisabledColor: Colors.white,
-                    valueChanged: (_isFavorite) {
+                    valueChanged: (isFavorite) {
+                      if (isFavorite == true) {
+                        favourites.firstWhere((element) => element['name'] == 'Чизкейк', orElse: () {
+                          favourites.add({
+                            'name': 'Чизкейк',
+                            'description':
+                                'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                            'weight': '200 гр',
+                            'count': 1,
+                            'price': 200
+                          });
+                        });
+                        prefs.setString('favourites', jsonEncode(favourites));
+                        print(favourites);
+                      } else {
+                        for (var i = 0; i < favourites.length; i++) {
+                          if (favourites[i]['name'] == 'Чизкейк') {
+                            favourites.removeAt(i);
+                            prefs.setString('favourites', jsonEncode(favourites));
+                            print(favourites);
+                            break;
+                          }
+                        }
+                      }
                     },
                   ),
                 ),
@@ -177,19 +222,13 @@ class Item2 extends StatelessWidget {
                         children: [
                           Text(
                             "ЧИЗКЕЙК",
-                            style: TextStyle(
-                                color: Color(0xFFFFFFFF),
-                                fontFamily: "Overpass-Bold",
-                                fontSize: 16),
+                            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 16),
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             child: Text(
                               "200гр",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
-                                  fontFamily: "Overpass-Bold",
-                                  fontSize: 14),
+                              style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.3), fontFamily: "Overpass-Bold", fontSize: 14),
                             ),
                           )
                         ],
@@ -215,10 +254,7 @@ class Item2 extends StatelessWidget {
                       height: 60,
                       child: Text(
                         'Классическое блюдо американской кухни',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
-                            fontFamily: "Overpass-SemiBold",
-                            fontSize: 16),
+                        style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5), fontFamily: "Overpass-SemiBold", fontSize: 16),
                       ),
                     ),
                     Spacer(),
@@ -260,8 +296,7 @@ class Item3 extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.03),
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
         child: Column(
           children: [
             Stack(
@@ -272,10 +307,36 @@ class Item3 extends StatelessWidget {
                   right: 25,
                   top: 25,
                   child: FavoriteButton(
-                    isFavorite: false,
+                    isFavorite: favourites.firstWhere((element) => element['name'] == 'ВОДКА BELUGA', orElse: () {
+                          return false;
+                        }) !=
+                        false,
                     iconSize: 30,
                     iconDisabledColor: Colors.white,
-                    valueChanged: (_isFavorite) {
+                    valueChanged: (isFavorite) {
+                      if (isFavorite == true) {
+                        favourites.firstWhere((element) => element['name'] == 'ВОДКА BELUGA', orElse: () {
+                          favourites.add({
+                            'name': 'ВОДКА BELUGA',
+                            'description':
+                                'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                            'weight': '40 ml',
+                            'count': 1,
+                            'price': 195
+                          });
+                        });
+                        prefs.setString('favourites', jsonEncode(favourites));
+                        print(favourites);
+                      } else {
+                        for (var i = 0; i < favourites.length; i++) {
+                          if (favourites[i]['name'] == 'ВОДКА BELUGA') {
+                            favourites.removeAt(i);
+                            prefs.setString('favourites', jsonEncode(favourites));
+                            print(favourites);
+                            break;
+                          }
+                        }
+                      }
                     },
                   ),
                 ),
@@ -292,19 +353,13 @@ class Item3 extends StatelessWidget {
                         children: [
                           Text(
                             "ВОДКА BELUGA",
-                            style: TextStyle(
-                                color: Color(0xFFFFFFFF),
-                                fontFamily: "Overpass-Bold",
-                                fontSize: 14),
+                            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 14),
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             child: Text(
-                              "40ml",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
-                                  fontFamily: "Overpass-Bold",
-                                  fontSize: 14),
+                              "40 ml",
+                              style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.3), fontFamily: "Overpass-Bold", fontSize: 14),
                             ),
                           )
                         ],
@@ -330,10 +385,7 @@ class Item3 extends StatelessWidget {
                       height: 60,
                       child: Text(
                         'Водка "Белуга" относится к классу элитных алкогольных напитков',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
-                            fontFamily: "Overpass-SemiBold",
-                            fontSize: 16),
+                        style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5), fontFamily: "Overpass-SemiBold", fontSize: 16),
                       ),
                     ),
                     Spacer(),
@@ -375,8 +427,7 @@ class Item4 extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.03),
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
         child: Column(
           children: [
             Stack(
@@ -387,10 +438,36 @@ class Item4 extends StatelessWidget {
                   right: 25,
                   top: 25,
                   child: FavoriteButton(
-                    isFavorite: false,
+                    isFavorite: favourites.firstWhere((element) => element['name'] == 'ВИНО АЛЬМА ВЕЛЛИ', orElse: () {
+                          return false;
+                        }) !=
+                        false,
                     iconSize: 30,
                     iconDisabledColor: Colors.white,
-                    valueChanged: (_isFavorite) {
+                    valueChanged: (isFavorite) {
+                      if (isFavorite == true) {
+                        favourites.firstWhere((element) => element['name'] == 'ВИНО АЛЬМА ВЕЛЛИ', orElse: () {
+                          favourites.add({
+                            'name': 'ВИНО АЛЬМА ВЕЛЛИ',
+                            'description':
+                                'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                            'weight': '750 ml',
+                            'count': 1,
+                            'price': 2090
+                          });
+                        });
+                        prefs.setString('favourites', jsonEncode(favourites));
+                        print(favourites);
+                      } else {
+                        for (var i = 0; i < favourites.length; i++) {
+                          if (favourites[i]['name'] == 'ВИНО АЛЬМА ВЕЛЛИ') {
+                            favourites.removeAt(i);
+                            prefs.setString('favourites', jsonEncode(favourites));
+                            print(favourites);
+                            break;
+                          }
+                        }
+                      }
                     },
                   ),
                 ),
@@ -407,19 +484,13 @@ class Item4 extends StatelessWidget {
                         children: [
                           Text(
                             "ВИНО АЛЬМА ВЕЛЛИ",
-                            style: TextStyle(
-                                color: Color(0xFFFFFFFF),
-                                fontFamily: "Overpass-Bold",
-                                fontSize: 14),
+                            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 14),
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             child: Text(
                               "750ml",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF).withOpacity(0.3),
-                                  fontFamily: "Overpass-Bold",
-                                  fontSize: 14),
+                              style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.3), fontFamily: "Overpass-Bold", fontSize: 14),
                             ),
                           )
                         ],
@@ -445,10 +516,7 @@ class Item4 extends StatelessWidget {
                       height: 60,
                       child: Text(
                         'Водка "Белуга" относится к классу элитных алкогольных напитков',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
-                            fontFamily: "Overpass-SemiBold",
-                            fontSize: 16),
+                        style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.5), fontFamily: "Overpass-SemiBold", fontSize: 16),
                       ),
                     ),
                     Spacer(),

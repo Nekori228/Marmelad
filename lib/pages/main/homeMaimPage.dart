@@ -19,8 +19,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
 
   void setPage(index) {
     selectedPage = index;
-    pageController.animateToPage(index,
-        duration: Duration(seconds: 1), curve: Curves.ease);
+    pageController.animateToPage(index, duration: Duration(seconds: 1), curve: Curves.ease);
     setState(() {});
   }
 
@@ -57,10 +56,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            selectedPage == 0
-                                ? SvgPicture.asset(
-                                    "assets/images/tabs1_press.svg")
-                                : SvgPicture.asset("assets/images/tabs1.svg"),
+                            selectedPage == 0 ? SvgPicture.asset("assets/images/tabs1_press.svg") : SvgPicture.asset("assets/images/tabs1.svg"),
                           ],
                         ),
                       ),
@@ -82,10 +78,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            selectedPage == 1
-                                ? SvgPicture.asset(
-                                    "assets/images/tabs2_press.svg")
-                                : SvgPicture.asset("assets/images/tabs2.svg"),
+                            selectedPage == 1 ? SvgPicture.asset("assets/images/tabs2_press.svg") : SvgPicture.asset("assets/images/tabs2.svg"),
                           ],
                         ),
                       ),
@@ -107,10 +100,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            selectedPage == 2
-                                ? SvgPicture.asset(
-                                    "assets/images/tabs3_press.svg")
-                                : SvgPicture.asset("assets/images/tabs3.svg"),
+                            selectedPage == 2 ? SvgPicture.asset("assets/images/tabs3_press.svg") : SvgPicture.asset("assets/images/tabs3.svg"),
                           ],
                         ),
                       ),
@@ -130,10 +120,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          selectedPage == 3
-                              ? SvgPicture.asset(
-                                  "assets/images/tabs4_press.svg")
-                              : SvgPicture.asset("assets/images/tabs4.svg"),
+                          selectedPage == 3 ? SvgPicture.asset("assets/images/tabs4_press.svg") : SvgPicture.asset("assets/images/tabs4.svg"),
                         ],
                       ),
                     ),
@@ -145,28 +132,18 @@ class _HomeMainPageState extends State<HomeMainPage> {
             SizedBox(height: 20),
             ExpandablePageView(controller: pageController, children: [
               Column(
-                children: [
-                  Item1(),
-                  SizedBox(height: 40),
-                  Item2(),
-                  SizedBox(height: 40),
-                  Item1()
-                ],
+                children: [Item1(), SizedBox(height: 40), Item2()],
               ),
               Column(
                 children: [
                   Item2(),
-                  SizedBox(height: 40),
-                  Item1(),
-                  SizedBox(height: 40),
-                  Item1()
                 ],
               ),
               Column(
-                children: [Item3(), SizedBox(height: 40), Item3()],
+                children: [Item3()],
               ),
               Column(
-                children: [Item4(), SizedBox(height: 40), Item4()],
+                children: [Item4()],
               ),
             ]),
           ],
