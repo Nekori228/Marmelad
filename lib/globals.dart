@@ -21,16 +21,19 @@ void initPrefs() async {
   favourites = prefs.getString('favourites');
   if (card == null) {
     card = [];
+    prefs.setString('card', jsonEncode(card));
   } else {
     card = jsonDecode(card);
   }
   if (orders == null) {
     orders = [];
+    prefs.setString('orders', jsonEncode(orders));
   } else {
     orders = jsonDecode(orders);
   }
   if (favourites == null) {
     favourites = [];
+    prefs.setString('favourites', jsonEncode(favourites));
   } else {
     favourites = jsonDecode(favourites);
   }

@@ -171,7 +171,7 @@ class _CartScreenState extends State<CartScreen> {
                       );
                     },
                     shrinkWrap: true,
-                    itemCount: jsonDecode(prefs.getString('card')) != null ? jsonDecode(prefs.getString('card')).length : 0,
+                    itemCount: prefs.getString('card') != null ? jsonDecode(prefs.getString('card')).length : 0,
                     separatorBuilder: (BuildContext context, int index) {
                       return const SizedBox(
                         height: 30,
