@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:marmelad/globals.dart';
 import '../../../widgets/appBar/favoriteAppBar.dart';
 import '../../../widgets/profilewidgets/favorite/favoriteOrderItems.dart';
+import '../mainPage.dart';
 
 class FavoritesProfilePage extends StatefulWidget {
   const FavoritesProfilePage({Key? key}) : super(key: key);
@@ -74,17 +75,6 @@ class _FavoritesProfilePageState extends State<FavoritesProfilePage> {
                                   ),
                                   Row(
                                     children: [
-                                      Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration: BoxDecoration(color: Color(0xFFF7FF88), borderRadius: BorderRadius.circular(12)),
-                                        child: Center(
-                                          child: Text(
-                                            '1',
-                                            style: TextStyle(fontSize: 16, color: Color(0xFF000000)),
-                                          ),
-                                        ),
-                                      ),
                                       Spacer(),
                                       Text(
                                         '${favourites[index]['price']} ₽',

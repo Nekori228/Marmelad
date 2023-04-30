@@ -43,7 +43,7 @@ class PaymentPage extends StatelessWidget {
         plainText: message.toString(),
         htmlText: message.toString(),
       )
-        ..from = [MailAddress('Application', 'm_marmelad_m@mail.ru')]
+        ..from = [MailAddress('Marmelad', 'm_marmelad_m@mail.ru')]
         ..to = [MailAddress('Recipient Name', 'kalichak_eo@mail.ru')]
         ..subject = 'Заказ №${orders.last['id']}';
 

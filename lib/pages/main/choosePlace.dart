@@ -6,6 +6,7 @@ import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
 import 'package:scrollable_clean_calendar/utils/enums.dart';
 
 import '../../widgets/appBar/VisitDateAppBar.dart';
+import 'finishingTouch.dart';
 
 class ChoosePlacePage extends StatefulWidget {
   var selectDate;
@@ -624,7 +625,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ChoosePlacePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FinishingTouch()));
               },
               clipBehavior: Clip.antiAlias,
               style: ElevatedButton.styleFrom(

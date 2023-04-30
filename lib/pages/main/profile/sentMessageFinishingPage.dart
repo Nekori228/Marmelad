@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../mainPage.dart';
 
-class sentMessageFeedbackPage extends StatelessWidget {
-  const sentMessageFeedbackPage({Key? key}) : super(key: key);
+class sentMessageFinishingPage extends StatelessWidget {
+  const sentMessageFinishingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +14,24 @@ class sentMessageFeedbackPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Сообщение отправлено',
-              style: TextStyle(
-                fontSize: 40,
-                height: 1,
-                fontFamily: "Poppins",
-                fontWeight: FontWeight.w600,
-                color: Color(0xFFFFFFFF),
+            Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.22),
+              child: Text(
+                'Столик успешно забронирован',
+                style: TextStyle(
+                  fontSize: 40,
+                  height: 1,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFFFFFFFF),
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             SizedBox(height: 50),
             Text(
-              'Спасибо, за обратную \nсвязь',
+              'Спасибо, что выбрали нас',
               style: TextStyle(
                 fontSize: 16,
                 height: 1,
