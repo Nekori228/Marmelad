@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/profile/bookingHistory.dart';
 import 'package:marmelad/pages/main/visitDatePage.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 import '../../widgets/booking.dart';
 import '../../widgets/bar/bookingBar.dart';
 
@@ -85,6 +86,7 @@ class BookingPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

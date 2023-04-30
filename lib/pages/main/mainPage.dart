@@ -6,6 +6,7 @@ import 'package:marmelad/pages/main/%D1%81artPage.dart';
 import 'package:marmelad/pages/main/profilePage.dart';
 import 'package:marmelad/widgets/theme.dart';
 import '../../isons/custom_icons.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 import 'bookingPage.dart';
 import 'homeMaimPage.dart';
 
@@ -67,32 +68,32 @@ class _pagesState extends State<bottomNavigation> {
         body:  Center(
           child: _widgetOptions[selectedPageBottomBar],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Color(0xFF858582),
-          backgroundColor: Colors.black,
-          selectedItemColor: Color(0xFFF7FF88),
-          currentIndex: selectedPageBottomBar,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(CustomIcons.home_2),
-                label: 'Главная'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(CustomIcons.group),
-                label: 'Корзина'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(CustomIcons.group_2),
-                label: 'Бронирование'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(CustomIcons.group_3),
-                label: 'Профиль'
-            ),
-          ],
-          onTap: onSelectTab,
-        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   unselectedItemColor: Color(0xFF858582),
+        //   backgroundColor: Colors.black,
+        //   selectedItemColor: Color(0xFFF7FF88),
+        //   currentIndex: selectedPageBottomBar,
+        //   type: BottomNavigationBarType.fixed,
+        //   items: [
+        //     BottomNavigationBarItem(
+        //         icon: Icon(CustomIcons.home_2),
+        //         label: 'Главная'
+        //     ),
+        //     BottomNavigationBarItem(
+        //         icon: Icon(CustomIcons.group),
+        //         label: 'Корзина'
+        //     ),
+        //     BottomNavigationBarItem(
+        //         icon: Icon(CustomIcons.group_2),
+        //         label: 'Бронирование'
+        //     ),
+        //     BottomNavigationBarItem(
+        //         icon: Icon(CustomIcons.group_3),
+        //         label: 'Профиль'
+        //     ),
+        //   ],
+        //   onTap: onSelectTab,
+        // ),
       ),
     );
   }

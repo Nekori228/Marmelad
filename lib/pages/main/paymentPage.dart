@@ -8,6 +8,7 @@ import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/profile/orderProfilePage.dart';
 
 import '../../widgets/appBar/paymentAppBar.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 
 class PaymentPage extends StatelessWidget {
   PaymentPage({Key? key}) : super(key: key);
@@ -484,6 +485,7 @@ class PaymentPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

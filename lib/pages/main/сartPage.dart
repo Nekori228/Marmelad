@@ -6,6 +6,8 @@ import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/paymentPage.dart';
 import 'package:marmelad/widgets/profilewidgets/basket/basket.dart';
 
+import '../../widgets/bar/bottomNavigationBar.dart';
+
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
@@ -282,6 +284,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }
