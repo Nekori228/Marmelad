@@ -4,6 +4,7 @@ import 'package:expansion_widget/expansion_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/appBar/questionsAppBar.dart';
+import '../../../widgets/bar/bottomNavigationBar.dart';
 
 class questionsProfilePage extends StatelessWidget {
   questionsProfilePage({Key? key}) : super(key: key);
@@ -111,6 +112,7 @@ class questionsProfilePage extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: listQuestion.length)),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

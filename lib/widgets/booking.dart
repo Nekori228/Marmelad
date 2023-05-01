@@ -9,10 +9,7 @@ class BookingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BookingPage()));
-      },
+      onTap: () {},
       child: Container(
         margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
         decoration: BoxDecoration(

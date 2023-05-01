@@ -6,6 +6,7 @@ import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
 import 'package:scrollable_clean_calendar/utils/enums.dart';
 
 import '../../widgets/appBar/VisitDateAppBar.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 import 'finishingTouch.dart';
 
 class ChoosePlacePage extends StatefulWidget {
@@ -650,6 +651,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
             )
           ],
         ),
+        bottomNavigationBar: ProjectBottomNavBar(),
       ),
     );
   }

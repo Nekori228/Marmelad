@@ -4,7 +4,7 @@ class PaymentAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 85,
+      toolbarHeight: 110,
       backgroundColor: Colors.black,
       centerTitle: false,
       iconTheme: IconThemeData(color: Colors.white),

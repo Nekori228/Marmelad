@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/appBar/order912AppBar.dart';
+import '../../../widgets/bar/bottomNavigationBar.dart';
 import '../../../widgets/profilewidgets/favorite/favoriteOrderItems.dart';
 
 class Order912ProfilePage extends StatelessWidget {
@@ -107,6 +108,7 @@ class Order912ProfilePage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

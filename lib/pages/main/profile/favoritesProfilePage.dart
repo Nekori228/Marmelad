@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/globals.dart';
 import '../../../widgets/appBar/favoriteAppBar.dart';
+import '../../../widgets/bar/bottomNavigationBar.dart';
 import '../../../widgets/profilewidgets/favorite/favoriteOrderItems.dart';
 import '../mainPage.dart';
 
@@ -104,6 +105,7 @@ class _FavoritesProfilePageState extends State<FavoritesProfilePage> {
             // ),
             ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

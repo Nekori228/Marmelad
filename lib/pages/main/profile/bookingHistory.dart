@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/bar/bookingHistoryBar.dart';
+import '../../../widgets/bar/bottomNavigationBar.dart';
 import '../../../widgets/profilewidgets/bookingHistory/bookinHistoryItems.dart';
 
 class bookingHistory extends StatelessWidget {
@@ -54,6 +55,7 @@ class bookingHistory extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

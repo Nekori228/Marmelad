@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../widgets/bar/bottomNavigationBar.dart';
 import '../mainPage.dart';
 
 class sentMessageFeedbackPage extends StatelessWidget {
@@ -40,6 +41,7 @@ class sentMessageFeedbackPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

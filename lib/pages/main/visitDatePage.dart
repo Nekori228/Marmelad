@@ -7,6 +7,7 @@ import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
 import 'package:scrollable_clean_calendar/utils/enums.dart';
 
 import '../../widgets/appBar/VisitDateAppBar.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 
 class VisitDatePage extends StatefulWidget {
   @override
@@ -118,6 +119,7 @@ class _VisitDatePageState extends State<VisitDatePage> {
               )
             ],
           ),
+          bottomNavigationBar: ProjectBottomNavBar(),
         ),
       ),
     );

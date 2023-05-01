@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/profile/sentMessageFeedbackPage.dart';
 
+import '../../../widgets/bar/bottomNavigationBar.dart';
 import '../../../widgets/bar/feedbackBar.dart';
 
 class FeedbackPage extends StatelessWidget {
@@ -209,6 +210,7 @@ class FeedbackPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

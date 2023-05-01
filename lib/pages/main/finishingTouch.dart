@@ -5,6 +5,7 @@ import 'package:marmelad/pages/main/profile/sentMessageFeedbackPage.dart';
 import 'package:marmelad/pages/main/profile/sentMessageFinishingPage.dart';
 
 import '../../../widgets/bar/feedbackBar.dart';
+import '../../widgets/bar/bottomNavigationBar.dart';
 import '../../widgets/bar/finishingBar.dart';
 
 class FinishingTouch extends StatelessWidget {
@@ -225,6 +226,7 @@ class FinishingTouch extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: ProjectBottomNavBar(),
     );
   }
 }

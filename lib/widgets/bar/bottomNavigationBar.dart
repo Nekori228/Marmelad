@@ -52,35 +52,77 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                     onSelectTab(0);
                   },
                 ),
-                Text('1', style: TextStyle(color: Colors.white),)
+                Text(
+                  'Главная',
+                  style: TextStyle(
+                      color: selectedPage == 0
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                )
               ],
             ),
-            IconButton(
-              icon: Icon(CustomIcons.group,
-                  color: selectedPage == 1
-                      ? Color(0xFFF7FF88)
-                      : Color(0xFF858582)),
-              onPressed: () {
-                onSelectTab(1);
-              },
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(CustomIcons.group,
+                      color: selectedPage == 1
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                  onPressed: () {
+                    onSelectTab(1);
+                  },
+                ),
+                Text(
+                  'Корзина',
+                  style: TextStyle(
+                      color: selectedPage == 1
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                )
+              ],
             ),
-            IconButton(
-              icon: Icon(CustomIcons.group_2,
-                  color: selectedPage == 2
-                      ? Color(0xFFF7FF88)
-                      : Color(0xFF858582)),
-              onPressed: () {
-                onSelectTab(2);
-              },
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(CustomIcons.group_2,
+                      color: selectedPage == 2
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                  onPressed: () {
+                    onSelectTab(2);
+                  },
+                ),
+                Text(
+                  'Бронирование',
+                  style: TextStyle(
+                      color: selectedPage == 1
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                )
+              ],
             ),
-            IconButton(
-              icon: Icon(CustomIcons.group_3,
-                  color: selectedPage == 3
-                      ? Color(0xFFF7FF88)
-                      : Color(0xFF858582)),
-              onPressed: () {
-                onSelectTab(3);
-              },
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(CustomIcons.group_3,
+                      color: selectedPage == 3
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                  onPressed: () {
+                    onSelectTab(3);
+                  },
+                ),
+                Text(
+                  'Бронирование',
+                  style: TextStyle(
+                      color: selectedPage == 1
+                          ? Color(0xFFF7FF88)
+                          : Color(0xFF858582)),
+                )
+              ],
             ),
           ]),
     );

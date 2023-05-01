@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/profile/orderProfilePage.dart';
+import 'package:marmelad/pages/main/profile/orderSuccessfully.dart';
 
 import '../../widgets/appBar/paymentAppBar.dart';
 import '../../widgets/bar/bottomNavigationBar.dart';
@@ -461,7 +462,7 @@ class PaymentPage extends StatelessWidget {
                               card = [];
                               prefs.setString('card', jsonEncode(card));
                               prefs.setString('orders', jsonEncode(orders));
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const OrderProfilePage()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const OrderSuccesfullyPage()));
                             });
                           },
                           child: Stack(
