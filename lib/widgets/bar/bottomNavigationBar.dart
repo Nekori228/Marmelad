@@ -97,7 +97,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                 Text(
                   'Бронирование',
                   style: TextStyle(
-                      color: selectedPage == 1
+                      color: selectedPage == 2
                           ? Color(0xFFF7FF88)
                           : Color(0xFF858582)),
                 )
@@ -118,7 +118,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                 Text(
                   'Бронирование',
                   style: TextStyle(
-                      color: selectedPage == 1
+                      color: selectedPage == 3
                           ? Color(0xFFF7FF88)
                           : Color(0xFF858582)),
                 )
