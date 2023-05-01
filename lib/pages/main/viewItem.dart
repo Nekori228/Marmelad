@@ -79,7 +79,39 @@ class _ViewItemState extends State<ViewItem> {
                 borderColor:  Color(0xFFF7FF88),
                 spacing:0.0
             ),
-          )
+          ),
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: ElevatedButton(
+              onPressed: () {
+                if (jsonDecode(prefs.getString('card')).length !=
+                    0) {}
+              },
+              clipBehavior: Clip.antiAlias,
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                padding: EdgeInsets.zero,
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset("assets/images/button.png",
+                      fit: BoxFit.cover),
+                  const Text(
+                    'ОТПРАВИТЬ',
+                    style: TextStyle(
+                        letterSpacing: 3.75,
+                        fontSize: 24,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     ];
