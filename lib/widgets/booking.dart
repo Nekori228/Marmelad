@@ -19,19 +19,25 @@ class BookingWidget extends StatelessWidget {
                 fit: BoxFit.cover)),
         child: Container(
           margin: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.1),
+              horizontal: MediaQuery.of(context).size.width * 0.05),
           child: Column(
             children: [
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
                   margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Text(
-                    'Бронирование',
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontFamily: "Overpass-SemiBold",
-                        fontSize: 22),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Бронирование',
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontFamily: "Overpass-SemiBold",
+                            fontSize: 22),
+                      ),
+                      IconButton(onPressed: () {}, icon: Icon(Icons.close), color: Colors.white,)
+                    ],
                   ),
                 ),
               ),
