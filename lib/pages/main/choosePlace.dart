@@ -10,9 +10,9 @@ import '../../widgets/bar/bottomNavigationBar.dart';
 import 'finishingTouch.dart';
 
 class ChoosePlacePage extends StatefulWidget {
-  var selectDate;
+  var selectDateMonth;
 
-  ChoosePlacePage({Key? key, this.selectDate}) : super(key: key);
+  ChoosePlacePage({Key? key, this.selectDateMonth}) : super(key: key);
 
   @override
   State<ChoosePlacePage> createState() => _ChoosePlacePageState();
@@ -50,27 +50,24 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF000000),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
+        backgroundColor: const Color(0xFF000000),
+        appBar: PreferredSize(preferredSize: const Size.fromHeight(80.0), child: VisitDateAppBar()),
         body: Column(
           children: [
-            Spacer(),
+            const Spacer(),
             Container(
               margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Зал 1',
                     style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
                   ),
-                  Spacer(),
-                  Text(widget.selectDate.toString(), style: TextStyle(color: Colors.white.withOpacity(0.12), fontSize: 40)),
+                  const Spacer(),
+                  Text(widget.selectDateMonth.toString(), style: TextStyle(color: Colors.white.withOpacity(0.12), fontSize: 40)),
                 ],
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Stack(
               children: [
@@ -89,8 +86,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 69,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '9' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '9' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '9',
@@ -109,8 +106,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 69,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '10' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '10' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '10',
@@ -129,8 +126,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 36,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '11' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(50))),
+                                color: selectedDate == '11' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(50))),
                             child: Center(
                               child: Text(
                                 '11',
@@ -149,8 +146,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 70,
                             height: 51,
                             decoration: BoxDecoration(
-                                color: selectedDate == 'VIP 21' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == 'VIP 21' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 'VIP \n21',
@@ -170,8 +167,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 39,
                             height: 51,
                             decoration: BoxDecoration(
-                                color: selectedDate == '20' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '20' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '20',
@@ -197,8 +194,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 69,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '8' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '8' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '8',
@@ -207,12 +204,12 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             ),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           width: 33,
                           height: 51,
-                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: Center(
+                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                          child: const Center(
                             child: Text(
                               'DJ',
                               textAlign: TextAlign.center,
@@ -235,8 +232,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 69,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '7' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '7' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '7',
@@ -255,8 +252,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 68,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '13' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '13' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '13',
@@ -275,8 +272,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             width: 72,
                             height: 33,
                             decoration: BoxDecoration(
-                                color: selectedDate == '12' ? Color(0xffEAF180) : Color(0xff333333),
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                                color: selectedDate == '12' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 '12',
@@ -287,7 +284,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -306,8 +303,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 62,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '6' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '6' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '6',
@@ -326,8 +323,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 62,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '5' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '5' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '5',
@@ -351,8 +348,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 85,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '15' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '15' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '15',
@@ -371,8 +368,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 85,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '17' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '17' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '17',
@@ -391,8 +388,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 68,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '19' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '19' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '19',
@@ -416,8 +413,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 85,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '14' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '14' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '14',
@@ -436,8 +433,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 85,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '16' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '16' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '16',
@@ -456,8 +453,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 width: 68,
                                 height: 33,
                                 decoration: BoxDecoration(
-                                    color: selectedDate == '18' ? Color(0xffEAF180) : Color(0xff333333),
-                                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    color: selectedDate == '18' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                                 child: Center(
                                   child: Text(
                                     '18',
@@ -490,8 +487,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                     width: 73,
                                     height: 33,
                                     decoration: BoxDecoration(
-                                        color: selectedDate == '4' ? Color(0xffEAF180) : Color(0xff333333),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                                        color: selectedDate == '4' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                        borderRadius: const BorderRadius.all(Radius.circular(10))),
                                     child: Center(
                                       child: Text(
                                         '4',
@@ -507,12 +504,12 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                     setState(() {});
                                   },
                                   child: Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: const EdgeInsets.only(top: 5),
                                     width: 41,
                                     height: 73,
                                     decoration: BoxDecoration(
-                                        color: selectedDate == '2' ? Color(0xffEAF180) : Color(0xff333333),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                                        color: selectedDate == '2' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                        borderRadius: const BorderRadius.all(Radius.circular(10))),
                                     child: Center(
                                       child: Text(
                                         '2',
@@ -528,12 +525,12 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                     setState(() {});
                                   },
                                   child: Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: const EdgeInsets.only(top: 5),
                                     width: 41,
                                     height: 73,
                                     decoration: BoxDecoration(
-                                        color: selectedDate == '1' ? Color(0xffEAF180) : Color(0xff333333),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                                        color: selectedDate == '1' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                        borderRadius: const BorderRadius.all(Radius.circular(10))),
                                     child: Center(
                                       child: Text(
                                         '1',
@@ -548,7 +545,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 9,
                     ),
                     Row(
@@ -563,8 +560,9 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                           child: Container(
                             width: 36,
                             height: 33,
-                            decoration: BoxDecoration(color: selectedDate == '3' ? Color(0xffEAF180) : Color(0xff333333), borderRadius:
-                            BorderRadius.all(Radius.circular(50))),
+                            decoration: BoxDecoration(
+                                color: selectedDate == '3' ? const Color(0xffEAF180) : const Color(0xff333333),
+                                borderRadius: const BorderRadius.all(Radius.circular(50))),
                             child: Center(
                               child: Text(
                                 '3',
@@ -575,9 +573,9 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.14),
                         Container(
-                          margin: EdgeInsets.only(top: 10),
-                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: Center(
+                          margin: const EdgeInsets.only(top: 10),
+                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                          child: const Center(
                             child: Padding(
                               padding: EdgeInsets.symmetric(vertical: 13, horizontal: 20),
                               child: Text(
@@ -589,9 +587,9 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.05),
                         Container(
-                          margin: EdgeInsets.only(top: 10),
-                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: Center(
+                          margin: const EdgeInsets.only(top: 10),
+                          decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                          child: const Center(
                             child: Padding(
                               padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
                               child: Text(
@@ -612,8 +610,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                     width: 33,
                     height: 135,
                     margin: const EdgeInsets.only(top: 10),
-                    decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: Center(
+                    decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                    child: const Center(
                       child: Text(
                         'Бар',
                         style: TextStyle(color: Colors.black),
@@ -623,10 +621,16 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                 )
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => FinishingTouch()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FinishingTouch(
+                              seat: this.selectedDate,
+                              selectDate: widget.selectDateMonth,
+                            )));
               },
               clipBehavior: Clip.antiAlias,
               style: ElevatedButton.styleFrom(
@@ -642,7 +646,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                     "assets/images/button.png",
                     fit: BoxFit.cover,
                   ),
-                  Text(
+                  const Text(
                     'ДАЛЕЕ',
                     style: TextStyle(letterSpacing: 3.75, fontSize: 24, fontFamily: "Poppins", fontWeight: FontWeight.w600, color: Colors.black),
                   ),
@@ -651,7 +655,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
             )
           ],
         ),
-        bottomNavigationBar: ProjectBottomNavBar(),
+        bottomNavigationBar: const ProjectBottomNavBar(),
       ),
     );
   }

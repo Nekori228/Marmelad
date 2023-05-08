@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:enough_mail/enough_mail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/profile/sentMessageFeedbackPage.dart';
 import 'package:marmelad/pages/main/profile/sentMessageFinishingPage.dart';
 
@@ -9,6 +13,10 @@ import '../../widgets/bar/bottomNavigationBar.dart';
 import '../../widgets/bar/finishingBar.dart';
 
 class FinishingTouch extends StatelessWidget {
+  final String seat;
+  final String selectDate;
+  FinishingTouch({Key? key, required this.seat, required this.selectDate}) : super(key: key);
+
   Future<void> sendMessage(context) async {
     final client = SmtpClient('enough.de', isLogEnabled: false);
     try {
@@ -25,8 +33,8 @@ class FinishingTouch extends StatelessWidget {
       }
 
       var message =
-          'Имя: ${nameController.text}<br/>Фамилия: ${surnameController.text}<br/>mail: ${addressController.text}<br/>Сообщение: '
-          '${messageController.text}';
+          'Имя: ${nameController.text}<br/>Фамилия: ${surnameController.text}<br/>Номер места: ${seat}<br/>Количество человек: '
+          '${humanController.text}';
 
       final builder = MessageBuilder.prepareMultipartAlternativeMessage(
         plainText: message.toString(),
@@ -44,12 +52,9 @@ class FinishingTouch extends StatelessWidget {
     }
   }
 
-  FinishingTouch({Key? key}) : super(key: key);
-
   var nameController = TextEditingController();
   var surnameController = TextEditingController();
-  var addressController = TextEditingController();
-  var messageController = TextEditingController();
+  var humanController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -158,8 +163,9 @@ class FinishingTouch extends StatelessWidget {
                   child: SizedBox(
                     height: 50,
                     child: TextField(
-                      controller: addressController,
+                      controller: humanController,
                       cursorColor: Colors.black,
+                      keyboardType: TextInputType.number,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding:
@@ -189,11 +195,15 @@ class FinishingTouch extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       sendMessage(context).then((value) {
-                        Navigator.pushReplacement(
+                        var booking_object = {'place': this.seat, 'count_hum': humanController.text, 'date': this.selectDate};
+                        booking.add(booking_object);
+                        prefs.setString('booking', jsonEncode(booking));
+                        prefs.setString('lastBooking', jsonEncode(booking_object));
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const sentMessageFinishingPage()));
+                                    const sentMessageFinishingPage()), (Route<dynamic> route) => false);
                       });
                     },
                     clipBehavior: Clip.antiAlias,

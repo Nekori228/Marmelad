@@ -1,36 +1,53 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:marmelad/globals.dart';
 import 'package:marmelad/pages/main/profile/bookingHistory.dart';
 import 'package:marmelad/pages/main/visitDatePage.dart';
 import '../../widgets/bar/bottomNavigationBar.dart';
 import '../../widgets/booking.dart';
 import '../../widgets/bar/bookingBar.dart';
+import 'package:marmelad/globals.dart';
 
-class BookingPage extends StatelessWidget {
+class BookingPage extends StatefulWidget {
   const BookingPage({Key? key}) : super(key: key);
+
+  @override
+  State<BookingPage> createState() => _BookingPageState();
+}
+
+class _BookingPageState extends State<BookingPage> {
+  var statePreviousCallback;
+
 
   Future<bool> _onWillPop() async {
     return false; //<-- SEE HERE
   }
-  
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    statePreviousCallback = setState;
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        backgroundColor: Color(0xFF000000),
+        backgroundColor: const Color(0xFF000000),
         body: SafeArea(
           child: Column(
             children: [
-              BookingBarWidget(),
-              SizedBox(height: 20),
+              const BookingBarWidget(),
+              const SizedBox(height: 20),
               Container(
                 child: Container(
                   margin: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.03),
                   child: Row(
                     children: [
-                      Text(
+                      const Text(
                         'Активные бронирования',
                         style: TextStyle(
                           fontSize: 22,
@@ -39,18 +56,18 @@ class BookingPage extends StatelessWidget {
                           color: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                           icon: Icon(
                             Icons.more_time_rounded,
                             size: 24,
-                            color: Color(0xFFFFFFFF).withOpacity(0.5),
+                            color: const Color(0xFFFFFFFF).withOpacity(0.5),
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => bookingHistory(),
+                                builder: (context) => const bookingHistory(),
                               ),
                             );
                           }),
@@ -58,9 +75,9 @@ class BookingPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              BookingWidget(),
-              Spacer(),
+              const SizedBox(height: 10),
+              prefs.getString('lastBooking') != null ? BookingWidget(statePreviousCallback: statePreviousCallback,) : Container(),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
@@ -77,7 +94,7 @@ class BookingPage extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Image.asset("assets/images/button.png", fit: BoxFit.cover),
-                    Text(
+                    const Text(
                       'ЗАБРОНИРОВАТЬ',
                       style: TextStyle(
                           letterSpacing: 3.75,
@@ -92,7 +109,7 @@ class BookingPage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: ProjectBottomNavBar(),
+        bottomNavigationBar: const ProjectBottomNavBar(),
       ),
     );
   }

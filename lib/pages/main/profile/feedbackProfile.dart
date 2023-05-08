@@ -59,6 +59,7 @@ class FeedbackPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const FeedbackBarWidget(),
+                SizedBox(height: 20,),
                 const Text(
                   'ИМЯ',
                   style: TextStyle(color: Color(0xFF666666), fontSize: 12, fontWeight: FontWeight.bold, fontFamily: "Overpass-Black"),
@@ -159,8 +160,8 @@ class FeedbackPage extends StatelessWidget {
                     controller: messageController,
                     cursorColor: Colors.black,
                     style: const TextStyle(color: Colors.white),
-                    maxLines: 6,
-                    minLines: 2,
+                    maxLines: 10000,
+                    minLines: 7,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.fromLTRB(15, 10, 10, 10),
                       enabledBorder: OutlineInputBorder(

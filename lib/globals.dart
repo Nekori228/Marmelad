@@ -1,15 +1,16 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+
 var selectedPage = 0;
 var selectedPages = 0;
 var selectedPageBottomBar = 0;
-
 
 dynamic prefs;
 dynamic card;
 dynamic orders;
 dynamic favourites;
+dynamic booking;
 
 dynamic setStatePriceOrderCallback;
 dynamic setStateMainPageCallback;
@@ -19,6 +20,7 @@ void initPrefs() async {
   card = prefs.getString('card');
   orders = prefs.getString('orders');
   favourites = prefs.getString('favourites');
+  booking = prefs.getString('booking');
   if (card == null) {
     card = [];
     prefs.setString('card', jsonEncode(card));
@@ -36,6 +38,12 @@ void initPrefs() async {
     prefs.setString('favourites', jsonEncode(favourites));
   } else {
     favourites = jsonDecode(favourites);
+  }
+  if (booking == null) {
+    booking = [];
+    prefs.setString('booking', jsonEncode(booking));
+  } else {
+    booking = jsonDecode(booking);
   }
 }
 

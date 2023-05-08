@@ -46,81 +46,64 @@ class _VisitDatePageState extends State<VisitDatePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: const ColorScheme(
-          primary: Color(0xFFF7FF88),
-          primaryContainer: Color(0xFFF7FF88),
-          secondary: Color(0xFFD32F2F),
-          secondaryContainer: Color(0xFF9A0007),
-          surface: Color(0xFFDEE2E6),
-          background: Color(0xFFF8F9FA),
-          error: Color(0xFF96031A),
-          onPrimary: Colors.black,
-          onSecondary: Colors.white,
-          onSurface: Colors.white,
-          onBackground: Colors.black,
-          onError: Colors.white,
-          brightness: Brightness.light,
-        ),
-      ),
-      home: SafeArea(
-        child: Scaffold(
-          backgroundColor: Color(0xFF000000),
-          appBar: PreferredSize(
-              preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
-          // floatingActionButton: FloatingActionButton(
-          //   child: const Icon(Icons.arrow_downward),
-          //   onPressed: () {
-          //     calendarController.jumpToMonth(date: DateTime(2022, 8));
-          //   },
-          // ),
-          body: Column(
-            children: [
-              Expanded(
-                child: ScrollableCleanCalendar(
-                  calendarController: calendarController,
-                  layout: Layout.BEAUTY,
-                  calendarCrossAxisSpacing: 0,
-                ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFF000000),
+        appBar: PreferredSize(preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
+        // floatingActionButton: FloatingActionButton(
+        //   child: const Icon(Icons.arrow_downward),
+        //   onPressed: () {
+        //     calendarController.jumpToMonth(date: DateTime(2022, 8));
+        //   },
+        // ),
+        body: Column(
+          children: [
+            Expanded(
+              child: ScrollableCleanCalendar(
+                calendarController: calendarController,
+                layout: Layout.BEAUTY,
+                calendarCrossAxisSpacing: 0,
+                dayDisableColor: Colors.white,
+                dayBackgroundColor: Colors.black,
+                dayDisableBackgroundColor: Colors.black,
+                daySelectedBackgroundColor: Color(0xFFF7FF88),
               ),
-              selectDate != null ? Container(margin: EdgeInsets.only(bottom: 50) ,child: Text(selectDate, style: TextStyle(color: Colors.white
-                  .withOpacity(0.15),
-                  fontSize: 60,
-                  fontWeight: FontWeight.w700))):
-              Container(),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ChoosePlacePage(selectDate: selectDate,)));
-                },
-                clipBehavior: Clip.antiAlias,
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
+            ),
+            selectDate != null
+                ? Container(
+                    margin: EdgeInsets.only(bottom: 50),
+                    child: Text(selectDate, style: TextStyle(color: Colors.white.withOpacity(0.15), fontSize: 60, fontWeight: FontWeight.w700)))
+                : Container(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ChoosePlacePage(
+                          selectDateMonth: selectDate,
+                            )));
+              },
+              clipBehavior: Clip.antiAlias,
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                padding: EdgeInsets.zero,
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset("assets/images/button.png", fit: BoxFit.cover),
+                  Text(
+                    'ДАЛЕЕ',
+                    style: TextStyle(letterSpacing: 3.75, fontSize: 24, fontFamily: "Poppins", fontWeight: FontWeight.w600, color: Colors.black),
                   ),
-                  padding: EdgeInsets.zero,
-                ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset("assets/images/button.png", fit: BoxFit.cover),
-                    Text(
-                      'ДАЛЕЕ',
-                      style: TextStyle(
-                          letterSpacing: 3.75,
-                          fontSize: 24,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          bottomNavigationBar: ProjectBottomNavBar(),
+                ],
+              ),
+            )
+          ],
         ),
+        bottomNavigationBar: ProjectBottomNavBar(),
       ),
     );
   }

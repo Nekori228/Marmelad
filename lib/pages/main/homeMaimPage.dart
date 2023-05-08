@@ -20,6 +20,7 @@ Future<bool> _onWillPop() async {
 }
 
 class _HomeMainPageState extends State<HomeMainPage> {
+  var statePreviousCallback;
   var pageController = PageController();
 
   void setPage(index) {
@@ -27,6 +28,12 @@ class _HomeMainPageState extends State<HomeMainPage> {
     pageController.animateToPage(index,
         duration: Duration(seconds: 1), curve: Curves.ease);
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    statePreviousCallback = setState;
   }
 
   @override
@@ -153,7 +160,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                     ),
                   ),
                 ),
-                BookingWidget(),
+                prefs.getString('lastBooking') != null ? BookingWidget(statePreviousCallback: statePreviousCallback,) : Container(),
                 SizedBox(height: 20),
                 ExpandablePageView(controller: pageController, children: [
                   Column(
