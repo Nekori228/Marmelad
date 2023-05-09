@@ -11,12 +11,15 @@ class FinishingBarWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(
-              icon: SvgPicture.asset('assets/images/goback.svg',
-                  width: 30, height: 30),
-              onPressed: () {
-                Navigator.pop(context);
-              }),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 10, 5, 0),
+            child: IconButton(
+                icon: SvgPicture.asset('assets/images/goback.svg',
+                    width: 30, height: 30),
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
+          ),
           Column(
             children: [
               Stack(

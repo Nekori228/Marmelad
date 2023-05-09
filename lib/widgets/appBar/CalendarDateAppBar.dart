@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class VisitDateAppBar extends StatelessWidget with PreferredSizeWidget {
+class CalendarDateAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -15,22 +15,11 @@ class VisitDateAppBar extends StatelessWidget with PreferredSizeWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Выбор места',
+              'Выбери дату \nпосещения',
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 32,
                 fontFamily: 'Overpass-Black',
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-              child: Text(
-                'Темные - занятые\nстолы, а желтые\nсвободные',
-                style: TextStyle(
-                  color: Color(0xFF666666),
-                  fontSize: 14,
-                  fontFamily: 'Overpass-Black',
-                ),
               ),
             ),
           ],

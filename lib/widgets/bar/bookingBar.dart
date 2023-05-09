@@ -7,36 +7,39 @@ class BookingBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+      child: Row(
         children: [
-          Stack(
+          Column(
             children: [
-              Container(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(190, 30, 110, 0),
-                  child: SvgPicture.asset("assets/images/smale.svg",
-                      fit: BoxFit.cover),
-                ),
-              ),
-              Text(
-                'Бронирование',
-                style: TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 36,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.bold),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
-                child: Text(
-                  'Отлично провести \nвремя',
-                  style: TextStyle(
-                      color: Color(0xFFFFFFFF).withOpacity(0.4),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Poppins"),
-                ),
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.fromLTRB(190, 30, 0, 0),
+                    child: SvgPicture.asset("assets/images/smale.svg",
+                        fit: BoxFit.cover),
+                  ),
+                  Text(
+                    'Бронирование',
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 36,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                    child: Text(
+                      'Отлично провести \nвремя',
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF).withOpacity(0.4),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins"),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
