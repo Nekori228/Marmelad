@@ -8,36 +8,47 @@ class FinishingBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
+          IconButton(
+              icon: SvgPicture.asset('assets/images/goback.svg',
+                  width: 30, height: 30),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+          Column(
             children: [
-              Container(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(240, 30, 70, 0),
-                  child: SvgPicture.asset("assets/images/smale.svg",
-                      fit: BoxFit.cover),
-                ),
-              ),
-              Text(
-                'Последний штрих',
-                style: TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 54,
-                    height: 1,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.bold),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                child: Text(
-                  'Осталось совсем чуть-чуть',
-                  style: TextStyle(
-                      color: Color(0xFF666666),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Poppins"),
-                ),
+              Stack(
+                children: [
+                  Container(
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(240, 30, 0, 0),
+                      child: SvgPicture.asset("assets/images/smale.svg",
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                  Text(
+                    'Последний штрих',
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 30,
+
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                    child: Text(
+                      'Осталось совсем\nчуть-чуть',
+                      style: TextStyle(
+                          color: Color(0xFF666666),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins"),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

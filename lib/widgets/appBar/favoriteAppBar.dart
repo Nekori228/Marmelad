@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FavoriteAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -10,17 +11,14 @@ class FavoriteAppBar extends StatelessWidget with PreferredSizeWidget {
       title: Text(
         'Избранное',
         style: TextStyle(
-          color: Color(0xFFFFFFFF),
-          fontSize: 40,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.bold
-        ),
+            color: Color(0xFFFFFFFF),
+            fontSize: 40,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold),
       ),
       leading: IconButton(
-          icon: Icon(
-            Icons.arrow_circle_left,
-            size: 40,
-          ),
+          icon: SvgPicture.asset('assets/images/goback.svg',
+              width: 30, height: 30),
           onPressed: () {
             Navigator.pop(context);
           }),

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:expansion_widget/expansion_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../widgets/appBar/questionsAppBar.dart';
 import '../../../widgets/bar/bottomNavigationBar.dart';
 
@@ -65,11 +66,7 @@ class questionsProfilePage extends StatelessWidget {
                                   ),
                                   Transform.rotate(
                                     angle: pi * (animationValue + 2) / 2,
-                                    child: const Icon(
-                                      Icons.arrow_circle_left,
-                                      size: 20,
-                                      color: Color(0xFFFFFFFF),
-                                    ),
+                                    child: SvgPicture.asset('assets/images/goback.svg', width: 20, height: 20),
                                     alignment: Alignment.center,
                                   )
                                 ],

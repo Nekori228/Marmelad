@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ViewItemAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -8,31 +9,19 @@ class ViewItemAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: Colors.black,
       centerTitle: true,
       iconTheme: IconThemeData(color: Colors.white),
-      title: IconButton(
-          icon: Icon(
-            Icons.add_circle,
-            size: 34,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
       leading: IconButton(
-          icon: Icon(
-            Icons.arrow_circle_left,
-            size: 34,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
+        icon: SvgPicture.asset('assets/images/goback.svg', width: 30, height: 30),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
       actions: [
         IconButton(
-            icon: Icon(
-              Icons.circle_notifications,
-              size: 34,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+          icon: SvgPicture.asset('assets/images/Like.svg', width: 30, height: 30),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ],
     );
   }

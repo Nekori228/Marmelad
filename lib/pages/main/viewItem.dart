@@ -38,7 +38,10 @@ class _ViewItemState extends State<ViewItem> {
           SizedBox(height: 10),
           const Text(
             'Напишите ваш отзыв',
-            style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 22),
+            style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontFamily: "Overpass-Bold",
+                fontSize: 22),
           ),
           SizedBox(
             height: 120,
@@ -69,23 +72,20 @@ class _ViewItemState extends State<ViewItem> {
             width: MediaQuery.of(context).size.width,
             child: SmoothStarRating(
                 allowHalfRating: false,
-                onRated: (v) {
-                },
+                onRated: (v) {},
                 starCount: 5,
                 rating: rating,
                 size: 60.0,
-                isReadOnly:false,
+                isReadOnly: false,
                 color: Color(0xFFF7FF88),
-                borderColor:  Color(0xFFF7FF88),
-                spacing:0.0
-            ),
+                borderColor: Color(0xFFF7FF88),
+                spacing: 0.0),
           ),
           Container(
             margin: const EdgeInsets.all(20),
             child: ElevatedButton(
               onPressed: () {
-                if (jsonDecode(prefs.getString('card')).length !=
-                    0) {}
+                if (jsonDecode(prefs.getString('card')).length != 0) {}
               },
               clipBehavior: Clip.antiAlias,
               style: ElevatedButton.styleFrom(
@@ -97,8 +97,7 @@ class _ViewItemState extends State<ViewItem> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset("assets/images/button.png",
-                      fit: BoxFit.cover),
+                  Image.asset("assets/images/button.png", fit: BoxFit.cover),
                   const Text(
                     'ОТПРАВИТЬ',
                     style: TextStyle(
@@ -129,20 +128,28 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Ролл из рисовой бумаги с креветкой и манго с соусом чили',
-                style: TextStyle(color: const Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 16),
+                style: TextStyle(
+                    color: const Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 16),
               ),
             ),
             Column(
               children: [
                 Text(
                   '300 ₽',
-                  style: TextStyle(color: Color(0xFFF7FF88), fontFamily: "Overpass-SemiBold", fontSize: 20),
+                  style: TextStyle(
+                      color: Color(0xFFF7FF88),
+                      fontFamily: "Overpass-SemiBold",
+                      fontSize: 20),
                 ),
                 const SizedBox(height: 10),
                 StatefulBuilder(builder: (context, setStateCount) {
                   return Container(
                     height: 35,
-                    decoration: BoxDecoration(color: Color(0xFFF7FF88), borderRadius: BorderRadius.circular(12)),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFF7FF88),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Row(
                       children: [
                         Container(
@@ -165,7 +172,8 @@ class _ViewItemState extends State<ViewItem> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             '${counter}',
-                            style: TextStyle(fontSize: 16, color: Color(0xFF000000)),
+                            style: TextStyle(
+                                fontSize: 16, color: Color(0xFF000000)),
                           ),
                         ),
                         Container(
@@ -175,7 +183,8 @@ class _ViewItemState extends State<ViewItem> {
                               counter += 1;
                               setStateCount(() {});
                             }),
-                            child: Icon(Icons.add, color: Color(0xFF000000), size: 18),
+                            child: Icon(Icons.add,
+                                color: Color(0xFF000000), size: 18),
                           ),
                         ),
                       ],
@@ -186,6 +195,26 @@ class _ViewItemState extends State<ViewItem> {
             ),
           ],
         ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ViewComment(),
+              ),
+            );
+          },
+          child: Text(
+            "Просмотреть отзывы",
+            style: TextStyle(
+                decoration: TextDecoration.underline,
+                fontSize: 14,
+                fontFamily: "Overpass-SemiBold",
+                fontWeight: FontWeight.w600,
+                color: const Color(0xFFFFFFFF).withOpacity(0.5)),
+          ),
+        ),
+        SizedBox(height: 10),
         GestureDetector(
           onTap: () {
             isReview = 1;
@@ -204,17 +233,26 @@ class _ViewItemState extends State<ViewItem> {
         const SizedBox(height: 30),
         const Text(
           'Описание',
-          style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 22),
+          style: TextStyle(
+              color: Color(0xFFFFFFFF),
+              fontFamily: "Overpass-Bold",
+              fontSize: 22),
         ),
         SizedBox(height: 10),
         Text(
           'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек Показать полностью',
-          style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 16),
+          style: TextStyle(
+              color: Color(0xFFFFFFFF).withOpacity(0.47),
+              fontFamily: "Overpass-SemiBold",
+              fontSize: 16),
         ),
         SizedBox(height: 30),
         Text(
           'Состав',
-          style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 22),
+          style: TextStyle(
+              color: Color(0xFFFFFFFF),
+              fontFamily: "Overpass-Bold",
+              fontSize: 22),
         ),
         SizedBox(height: 20),
         Row(
@@ -229,7 +267,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Лепешки из рисовой муки',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -246,7 +287,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Креветки',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -263,7 +307,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Салат',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -280,7 +327,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Огурец',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -297,7 +347,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Морковь',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -314,7 +367,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Авокадо',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -331,7 +387,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Приправы и специи по вкусу',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -348,7 +407,10 @@ class _ViewItemState extends State<ViewItem> {
             Expanded(
               child: Text(
                 'Сладко-кислый соус для попробования.',
-                style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.47), fontFamily: "Overpass-SemiBold", fontSize: 14),
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.47),
+                    fontFamily: "Overpass-SemiBold",
+                    fontSize: 14),
               ),
             ),
           ],
@@ -366,7 +428,8 @@ class _ViewItemState extends State<ViewItem> {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
+              margin: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.03),
               child: (Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -376,12 +439,18 @@ class _ViewItemState extends State<ViewItem> {
                     children: [
                       Text(
                         'Фреш роллы с креветкой',
-                        style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 20),
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontFamily: "Overpass-Bold",
+                            fontSize: 20),
                       ),
                       SizedBox(width: 10),
                       Text(
                         '200гр',
-                        style: TextStyle(color: Color(0xFFFFFFFF).withOpacity(0.36), fontFamily: "Overpass-Bold", fontSize: 20),
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF).withOpacity(0.36),
+                            fontFamily: "Overpass-Bold",
+                            fontSize: 20),
                       ),
                     ],
                   ),
@@ -396,7 +465,8 @@ class _ViewItemState extends State<ViewItem> {
                       SizedBox(width: 2),
                       Text(
                         "4.8",
-                        style: TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
+                        style:
+                            TextStyle(color: Color(0xFFF7FF88), fontSize: 14),
                       ),
                       SizedBox(width: 10),
                       Icon(
@@ -407,28 +477,39 @@ class _ViewItemState extends State<ViewItem> {
                       SizedBox(width: 2),
                       Text(
                         "Вкусно",
-                        style: TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
+                        style:
+                            TextStyle(color: Color(0xFFFF6E6E), fontSize: 14),
                       ),
                     ],
                   ),
                   SizedBox(height: 10),
-                  ExpandablePageView(controller: pageController, children: reviewObjects),
+                  ExpandablePageView(
+                      controller: pageController, children: reviewObjects),
                 ],
               )),
             ),
           ),
         ),
-        bottomNavigationBar: card.firstWhere((element) => element['name'] == 'Фреш роллы с креветкой', orElse: () {return null;}) == null
+        bottomNavigationBar: card.firstWhere(
+                    (element) => element['name'] == 'Фреш роллы с креветкой',
+                    orElse: () {
+                  return null;
+                }) ==
+                null
             ? Container(
                 height: 90,
                 color: Colors.black12,
                 child: InkWell(
                   onTap: () {
-                    card.firstWhere((element) => element['name'] == 'Фреш роллы с креветкой', orElse: () {
+                    card.firstWhere(
+                        (element) =>
+                            element['name'] == 'Фреш роллы с креветкой',
+                        orElse: () {
                       card.add({
                         'name': 'Фреш роллы с '
                             'креветкой',
-                        'description': 'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
+                        'description':
+                            'Фреш роллы с креветкой - это классическое азиатское блюдо, которое сочетает в себе хрустящую красоту свежих овощей с сочным вкусом сокрытой креветки. Роллы изготавливаются из мягких, тонких лепешек',
                         'weight': '200 гр',
                         'count': counter,
                         'price': 300

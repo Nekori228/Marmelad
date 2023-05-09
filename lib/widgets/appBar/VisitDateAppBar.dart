@@ -9,19 +9,33 @@ class VisitDateAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: Colors.black,
       centerTitle: false,
       iconTheme: IconThemeData(color: Colors.white),
-      title: Text(
-        'Выбери дату \nпосещения',
-        style: TextStyle(
-          color: Color(0xFFFFFFFF),
-          fontSize: 36,
-          fontFamily: 'Overpass-Black',
+      title: Container(
+        margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Выбор места',
+              style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontSize: 36,
+                fontFamily: 'Overpass-Black',
+              ),
+            ),
+            Text(
+              'Темные - занятые\nстолы, а желтые\nсвободные',
+              style: TextStyle(
+                color: Color(0xFF666666),
+                fontSize: 16,
+                fontFamily: 'Overpass-Black',
+              ),
+            ),
+          ],
         ),
       ),
       leading: IconButton(
-          icon: Icon(
-            Icons.arrow_circle_left,
-            size: 40,
-          ),
+          icon: SvgPicture.asset('assets/images/goback.svg',
+              width: 30, height: 30),
           onPressed: () {
             Navigator.pop(context);
           }),

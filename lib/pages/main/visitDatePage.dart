@@ -49,7 +49,7 @@ class _VisitDatePageState extends State<VisitDatePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF000000),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
+        appBar: PreferredSize(preferredSize: Size.fromHeight(150), child: VisitDateAppBar()),
         // floatingActionButton: FloatingActionButton(
         //   child: const Icon(Icons.arrow_downward),
         //   onPressed: () {
