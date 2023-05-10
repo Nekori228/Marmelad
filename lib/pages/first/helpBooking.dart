@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marmelad/pages/first/signUp.dart';
 import '../../widgets/appBar/signUpAppBar.dart';
 
@@ -75,7 +76,7 @@ class _CarouselState extends State<Carousel> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: SizedBox(
                         height: 41,
                         width: 145,
@@ -110,27 +111,23 @@ class _CarouselState extends State<Carousel> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                      child: SizedBox(
-                        height: 41,
-                        width: 145,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUp()));
-                          },
-                          clipBehavior: Clip.antiAlias,
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            padding: EdgeInsets.zero,
+                      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUp()));
+                        },
+                        clipBehavior: Clip.antiAlias,
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
                           ),
-                          child: Image.asset('assets/images/buttonSmall.png',
-                              fit: BoxFit.cover),
+                          padding: EdgeInsets.zero,
                         ),
+                        child: SvgPicture.asset(
+                            'assets/images/ButtonPressMain.svg'),
                       ),
                     ),
                   ],

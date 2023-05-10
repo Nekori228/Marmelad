@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:marmelad/globals.dart';
 
 import '../../../widgets/bar/bookingHistoryBar.dart';
@@ -22,20 +23,22 @@ class bookingHistory extends StatelessWidget {
               BookingHistotyBarWidget(),
               SizedBox(height: 20),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.03),
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.03),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'История бронирования',
-                      style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 22, fontFamily: "Overpass-Bold", fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 22,
+                          fontFamily: "Overpass-Bold",
+                          fontWeight: FontWeight.bold),
                     ),
                     IconButton(
-                        icon: Icon(
-                          Icons.arrow_circle_left,
-                          color: Color(0xFFFFFFFF),
-                          size: 40,
-                        ),
+                        icon: SvgPicture.asset('assets/images/goback.svg',
+                            width: 30, height: 30),
                         onPressed: () {
                           Navigator.pop(context);
                         }),
@@ -45,7 +48,8 @@ class bookingHistory extends StatelessWidget {
               SizedBox(height: 20),
               ListView.separated(
                 itemBuilder: (context, index) {
-                  var booking_object = jsonDecode(prefs.getString('booking'))[index];
+                  var booking_object =
+                      jsonDecode(prefs.getString('booking'))[index];
                   return Container(
                     margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                     decoration: BoxDecoration(
@@ -53,7 +57,8 @@ class bookingHistory extends StatelessWidget {
                       color: Color(0xFFFFFFFF).withOpacity(0.03),
                     ),
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.1),
                       child: Column(
                         children: [
                           Align(
@@ -62,7 +67,10 @@ class bookingHistory extends StatelessWidget {
                               margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
                               child: Text(
                                 'Бронирование',
-                                style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-SemiBold", fontSize: 22),
+                                style: TextStyle(
+                                    color: Color(0xFFFFFFFF),
+                                    fontFamily: "Overpass-SemiBold",
+                                    fontSize: 22),
                               ),
                             ),
                           ),
@@ -72,7 +80,10 @@ class bookingHistory extends StatelessWidget {
                               margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
                                 '${booking_object['place']} столик',
-                                style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: "Overpass-Bold", fontSize: 43),
+                                style: TextStyle(
+                                    color: Color(0xFFFFFFFF),
+                                    fontFamily: "Overpass-Bold",
+                                    fontSize: 43),
                               ),
                             ),
                           ),

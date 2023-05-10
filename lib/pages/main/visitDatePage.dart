@@ -6,6 +6,7 @@ import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.
 import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
 import 'package:scrollable_clean_calendar/utils/enums.dart';
 
+import '../../widgets/appBar/CalendarDateAppBar.dart';
 import '../../widgets/appBar/VisitDateAppBar.dart';
 import '../../widgets/bar/bottomNavigationBar.dart';
 
@@ -24,8 +25,11 @@ class _VisitDatePageState extends State<VisitDatePage> {
     super.initState();
     var date = DateTime.now();
     var firstDayThisMonth = new DateTime(date.year, date.month, date.day);
-    var firstDayNextMonth = new DateTime(firstDayThisMonth.year, firstDayThisMonth.month + 1, firstDayThisMonth.day);
-    maxDate = DateTime.now().add(Duration(days: firstDayNextMonth.difference(firstDayThisMonth).inDays - date.day));
+    var firstDayNextMonth = new DateTime(firstDayThisMonth.year,
+        firstDayThisMonth.month + 1, firstDayThisMonth.day);
+    maxDate = DateTime.now().add(Duration(
+        days:
+            firstDayNextMonth.difference(firstDayThisMonth).inDays - date.day));
     calendarController = CleanCalendarController(
       minDate: DateTime.now(),
       maxDate: maxDate,
@@ -49,7 +53,8 @@ class _VisitDatePageState extends State<VisitDatePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF000000),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(80.0), child: VisitDateAppBar()),
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(100), child: CalendarDateAppBar()),
         // floatingActionButton: FloatingActionButton(
         //   child: const Icon(Icons.arrow_downward),
         //   onPressed: () {
@@ -72,16 +77,25 @@ class _VisitDatePageState extends State<VisitDatePage> {
             selectDate != null
                 ? Container(
                     margin: EdgeInsets.only(bottom: 50),
-                    child: Text(selectDate, style: TextStyle(color: Colors.white.withOpacity(0.15), fontSize: 60, fontWeight: FontWeight.w700)))
+                    child: Text(
+                      selectDate,
+                      style: TextStyle(
+                          color: Colors.white.withOpacity(0.15),
+                          fontSize: 60,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  )
                 : Container(),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ChoosePlacePage(
-                          selectDateMonth: selectDate,
-                            )));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChoosePlacePage(
+                      selectDateMonth: selectDate,
+                    ),
+                  ),
+                );
               },
               clipBehavior: Clip.antiAlias,
               style: ElevatedButton.styleFrom(
@@ -96,7 +110,12 @@ class _VisitDatePageState extends State<VisitDatePage> {
                   Image.asset("assets/images/button.png", fit: BoxFit.cover),
                   Text(
                     'ДАЛЕЕ',
-                    style: TextStyle(letterSpacing: 3.75, fontSize: 24, fontFamily: "Poppins", fontWeight: FontWeight.w600, color: Colors.black),
+                    style: TextStyle(
+                        letterSpacing: 3.75,
+                        fontSize: 24,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class QuestionsAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -16,15 +17,12 @@ class QuestionsAppBar extends StatelessWidget with PreferredSizeWidget {
               color: Color(0xFFFFFFFF),
               fontSize: 32,
               fontFamily: 'Poppins',
-              fontWeight: FontWeight.bold
-          ),
+              fontWeight: FontWeight.bold),
         ),
       ),
       leading: IconButton(
-          icon: Icon(
-            Icons.arrow_circle_left,
-            size: 40,
-          ),
+          icon: SvgPicture.asset('assets/images/goback.svg',
+              width: 30, height: 30),
           onPressed: () {
             Navigator.pop(context);
           }),
