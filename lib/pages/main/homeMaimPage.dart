@@ -24,9 +24,8 @@ class _HomeMainPageState extends State<HomeMainPage> {
   var pageController = PageController();
 
   void setPage(index) {
-    selectedPage = index;
-    pageController.animateToPage(index,
-        duration: Duration(seconds: 1), curve: Curves.ease);
+    selectedMenuItem = index;
+    pageController.animateToPage(index, duration: Duration(seconds: 1), curve: Curves.ease);
     setState(() {});
   }
 
@@ -73,11 +72,9 @@ class _HomeMainPageState extends State<HomeMainPage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                selectedPage == 0
-                                    ? SvgPicture.asset(
-                                        "assets/images/tabs1_press.svg")
-                                    : SvgPicture.asset(
-                                        "assets/images/tabs1.svg"),
+                                selectedMenuItem == 0
+                                    ? SvgPicture.asset("assets/images/tabs1_press.svg")
+                                    : SvgPicture.asset("assets/images/tabs1.svg"),
                               ],
                             ),
                           ),
@@ -99,11 +96,9 @@ class _HomeMainPageState extends State<HomeMainPage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                selectedPage == 1
-                                    ? SvgPicture.asset(
-                                        "assets/images/tabs2_press.svg")
-                                    : SvgPicture.asset(
-                                        "assets/images/tabs2.svg"),
+                                selectedMenuItem == 1
+                                    ? SvgPicture.asset("assets/images/tabs2_press.svg")
+                                    : SvgPicture.asset("assets/images/tabs2.svg"),
                               ],
                             ),
                           ),
@@ -125,11 +120,9 @@ class _HomeMainPageState extends State<HomeMainPage> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                selectedPage == 2
-                                    ? SvgPicture.asset(
-                                        "assets/images/tabs3_press.svg")
-                                    : SvgPicture.asset(
-                                        "assets/images/tabs3.svg"),
+                                selectedMenuItem == 2
+                                    ? SvgPicture.asset("assets/images/tabs3_press.svg")
+                                    : SvgPicture.asset("assets/images/tabs3.svg"),
                               ],
                             ),
                           ),
@@ -149,10 +142,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              selectedPage == 3
-                                  ? SvgPicture.asset(
-                                      "assets/images/tabs4_press.svg")
-                                  : SvgPicture.asset("assets/images/tabs4.svg"),
+                              selectedMenuItem == 3 ? SvgPicture.asset("assets/images/tabs4_press.svg") : SvgPicture.asset("assets/images/tabs4.svg"),
                             ],
                           ),
                         ),
@@ -160,7 +150,11 @@ class _HomeMainPageState extends State<HomeMainPage> {
                     ),
                   ),
                 ),
-                prefs.getString('lastBooking') != null ? BookingWidget(statePreviousCallback: statePreviousCallback,) : Container(),
+                prefs.getString('lastBooking') != null
+                    ? BookingWidget(
+                        statePreviousCallback: statePreviousCallback,
+                      )
+                    : Container(),
                 SizedBox(height: 20),
                 ExpandablePageView(controller: pageController, children: [
                   Column(
