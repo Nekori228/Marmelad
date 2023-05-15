@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "112276528687",
-    "project_id": "marmelad-22930",
-    "storage_bucket": "marmelad-22930.appspot.com"
+    "project_number": "669581801409",
+    "project_id": "marmelad-eba5f",
+    "storage_bucket": "marmelad-eba5f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:112276528687:android:8727d252bb600c67f070da",
+        "mobilesdk_app_id": "1:669581801409:android:d6395226c97ef1ef1fe140",
         "android_client_info": {
           "package_name": "com.example.marmelad"
         }
       },
       "oauth_client": [
         {
-          "client_id": "112276528687-oplq3pctivk1nkcbjgcsoa30gv1s9v5l.apps.googleusercontent.com",
+          "client_id": "669581801409-qii7n6953rki4endjptfmq671lbvlq6o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCjAzHg7JWkn4cG2kO3hT_JNuF-uLZR2NY"
+          "current_key": "AIzaSyCLV4mVv7nAWSjwR5MTYwv6j8V6N8rarxI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "112276528687-oplq3pctivk1nkcbjgcsoa30gv1s9v5l.apps.googleusercontent.com",
+              "client_id": "669581801409-qii7n6953rki4endjptfmq671lbvlq6o.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "112276528687-e75um3ht67tikfoul8p399ajckkn26vv.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.marmelad"
-              }
             }
           ]
         }
