@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class appBarMarmelad2 extends StatelessWidget with PreferredSizeWidget {
+class appBarMarmelad2 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

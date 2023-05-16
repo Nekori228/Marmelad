@@ -5,7 +5,7 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/viewComments.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
 
@@ -71,13 +71,12 @@ class _ViewItem2State extends State<ViewItem2> {
               width: MediaQuery.of(context).size.width,
               child: SmoothStarRating(
                   allowHalfRating: false,
-                  onRated: (v) {
+                  onRatingChanged: (v) {
                     rating = v;
                   },
                   starCount: 5,
                   rating: rating,
                   size: 60.0,
-                  isReadOnly: false,
                   color: const Color(0xFFF7FF88),
                   borderColor: const Color(0xFFF7FF88),
                   spacing: 0.0),

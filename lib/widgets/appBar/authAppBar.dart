@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class authAppBar extends StatelessWidget with PreferredSizeWidget {
+class authAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

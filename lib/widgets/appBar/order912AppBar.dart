@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Order912AppBar extends StatelessWidget with PreferredSizeWidget {
+class Order912AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

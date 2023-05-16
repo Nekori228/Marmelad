@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class passwordWerf extends StatelessWidget with PreferredSizeWidget {
+class passwordWerf extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

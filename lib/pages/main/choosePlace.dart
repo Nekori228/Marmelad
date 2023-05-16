@@ -52,14 +52,12 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
       child: Scaffold(
         backgroundColor: const Color(0xFF000000),
         appBar: PreferredSize(preferredSize: const Size.fromHeight(80.0), child: VisitDateAppBar()),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
+        body: InteractiveViewer(
+          constrained: false,
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
-                const Spacer(),
                 Container(
                   margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
                   child: Row(
@@ -213,7 +211,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             Container(
                               width: 33,
                               height: 51,
-                              decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                              decoration:
+                                  BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
                               child: const Center(
                                 child: Text(
                                   'DJ',
@@ -579,7 +578,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             SizedBox(width: MediaQuery.of(context).size.width * 0.14),
                             Container(
                               margin: const EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                              decoration:
+                                  BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
                               child: const Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 13, horizontal: 20),
@@ -593,7 +593,8 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                             SizedBox(width: MediaQuery.of(context).size.width * 0.05),
                             Container(
                               margin: const EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
+                              decoration:
+                                  BoxDecoration(color: Colors.white.withOpacity(0.44), borderRadius: const BorderRadius.all(Radius.circular(10))),
                               child: const Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
