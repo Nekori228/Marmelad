@@ -53,6 +53,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
         backgroundColor: const Color(0xFF000000),
         appBar: PreferredSize(preferredSize: const Size.fromHeight(80.0), child: VisitDateAppBar()),
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: SizedBox(
             height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width,

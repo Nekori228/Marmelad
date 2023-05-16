@@ -75,242 +75,192 @@ class _SignUpPageState extends State<SignUpPage> {
       }
     }
 
-    navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+    navigator.pushNamedAndRemoveUntil('/mainpage', (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Войти'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                email != null && !EmailValidator.validate(email)
-                    ? 'Введите правильный Email'
-                    : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
-                ),
-              ),
-              const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextInputController,
-                obscureText: isHiddenPassword,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+      backgroundColor: Colors.black,
+      appBar: appBarMarmelad2(),
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 70, 0, 5),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'ПОЧТА',
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF).withOpacity(0.5),
+                        fontFamily: 'Overpass-Black',
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: login,
-                child: const Center(child: Text('Войти')),
-              ),
-              const SizedBox(height: 30),
-              TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/signup'),
-                child: const Text(
-                  'Регистрация',
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
+                TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  controller: emailTextInputController,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Введите правильный Email'
+                          : null,
+                  decoration: InputDecoration(
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    enabled: true,
+                    contentPadding: EdgeInsets.fromLTRB(15, 10, 0, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    hintText: 'Marmelad@mail.ru',
+                    hintStyle: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFFFFFF).withOpacity(0.4)),
+                    filled: true,
+                    fillColor: Color(0xFFF7FF88).withOpacity(0.2),
                   ),
                 ),
-              ),
-              TextButton(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed('/reset_password'),
-                child: const Text('Сбросить пароль'),
-              ),
-            ],
+                const SizedBox(height: 40),
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'ПАРОЛЬ',
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF).withOpacity(0.5),
+                        fontFamily: 'Overpass-Black',
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                  child: TextFormField(
+                    cursorColor: Colors.black,
+                    style: TextStyle(color: Colors.white),
+                    autocorrect: false,
+                    controller: passwordTextInputController,
+                    obscureText: isHiddenPassword,
+                    validator: (value) => value != null && value.length < 6
+                        ? 'Минимум 6 символов'
+                        : null,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                      errorBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      hintText: '******',
+                      hintStyle: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xFFFFFFFF).withOpacity(0.4)),
+                      filled: true,
+                      fillColor: Color(0xFFF7FF88).withOpacity(0.2),
+                      suffix: InkWell(
+                        onTap: togglePasswordView,
+                        child: Container(
+                          margin: EdgeInsets.all(10),
+                          child: Icon(
+                            isHiddenPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Color(0xFFF7FF88),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pushNamed('/signup'),
+                  child: const Text(
+                    'Регистрация',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
+                  ),
+                ),
+                Spacer(),
+                ElevatedButton(
+                  onPressed: login,
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset("assets/images/button.png",
+                          fit: BoxFit.cover),
+                      Text(
+                        'ПРОДОЛЖИТЬ',
+                        style: TextStyle(
+                            letterSpacing: 3.75,
+                            fontSize: 24,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-
-// @override
-// Widget build(BuildContext context) {
-//   final theme = Theme.of(context);
-//   return Scaffold(
-//     backgroundColor: Colors.black,
-//     appBar: appBarMarmelad2(),
-//     body: SafeArea(
-//       child: Container(
-//         margin: EdgeInsets.symmetric(
-//             horizontal: MediaQuery.of(context).size.width * 0.04),
-//         child: Column(
-//           children: [
-//             Container(
-//               margin: EdgeInsets.fromLTRB(0, 70, 0, 5),
-//               child: Align(
-//                 alignment: Alignment.centerLeft,
-//                 child: Text(
-//                   'НОМЕР ТЕЛЕФОНА',
-//                   style: TextStyle(
-//                     color: Color(0xFFFFFFFF).withOpacity(0.5),
-//                     fontFamily: 'Overpass-Black',
-//                     fontSize: 14,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
-//               child: SizedBox(
-//                 height: 50,
-//                 child: TextField(
-//                   cursorColor: Colors.black,
-//                   style: TextStyle(color: Colors.white),
-//                   decoration: InputDecoration(
-//                     contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
-//                     enabledBorder: OutlineInputBorder(
-//                       borderSide:
-//                           BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-//                       borderRadius: BorderRadius.circular(25),
-//                     ),
-//                     focusedBorder: OutlineInputBorder(
-//                       borderSide:
-//                           BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-//                       borderRadius: BorderRadius.circular(25),
-//                     ),
-//                     hintText: '+79888888999',
-//                     hintStyle: TextStyle(
-//                         fontSize: 20,
-//                         color: Color(0xFFFFFFFF).withOpacity(0.4)),
-//                     filled: true,
-//                     fillColor: Color(0xFFF7FF88).withOpacity(0.2),
-//                     suffixIcon: GestureDetector(
-//                       onTap: () {},
-//                       child: Icon(
-//                         Icons.arrow_circle_right_sharp,
-//                         color: Color(0xFFF7FF88),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
-//               child: Align(
-//                 alignment: Alignment.centerLeft,
-//                 child: Text(
-//                   'КОД ИЗ СМС',
-//                   style: TextStyle(
-//                     color: Color(0xFFFFFFFF).withOpacity(0.5),
-//                     fontFamily: 'Overpass-Black',
-//                     fontSize: 14,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
-//               child: SizedBox(
-//                 height: 50,
-//                 child: TextField(
-//                   cursorColor: Colors.black,
-//                   style: TextStyle(color: Colors.white),
-//                   decoration: InputDecoration(
-//                     contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
-//                     enabledBorder: OutlineInputBorder(
-//                       borderSide:
-//                           BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-//                       borderRadius: BorderRadius.circular(25),
-//                     ),
-//                     focusedBorder: OutlineInputBorder(
-//                       borderSide:
-//                           BorderSide(color: Color(0xFFF7FF88), width: 3.0),
-//                       borderRadius: BorderRadius.circular(25),
-//                     ),
-//                     hintText: '75412',
-//                     hintStyle: TextStyle(
-//                         fontSize: 20,
-//                         color: Color(0xFFFFFFFF).withOpacity(0.4)),
-//                     filled: true,
-//                     fillColor: Color(0xFFF7FF88).withOpacity(0.2),
-//                     suffixIcon: GestureDetector(
-//                       onTap: () {},
-//                       child: Icon(
-//                         Icons.arrow_circle_right_sharp,
-//                         color: Color(0xFFF7FF88),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Align(
-//               alignment: Alignment.centerLeft,
-//               child: Text(
-//                 'ОТПРАВИТЬ ЗАНОВО',
-//                 style: TextStyle(
-//                   color: Color(0xFFFFFFFF).withOpacity(0.5),
-//                   fontFamily: 'Overpass-Black',
-//                   fontSize: 14,
-//                 ),
-//               ),
-//             ),
-//             Spacer(),
-//             ElevatedButton(
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//                 Navigator.of(context).pushReplacement(
-//                     MaterialPageRoute(builder: (context) => Main()));
-//               },
-//               clipBehavior: Clip.antiAlias,
-//               style: ElevatedButton.styleFrom(
-//                 shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(25),
-//                 ),
-//                 padding: EdgeInsets.zero,
-//               ),
-//               child: Stack(
-//                 alignment: Alignment.center,
-//                 children: [
-//                   Image.asset("assets/images/button.png", fit: BoxFit.cover),
-//                   Text(
-//                     'ПРОДОЖИТЬ',
-//                     style: TextStyle(
-//                         letterSpacing: 3.75,
-//                         fontSize: 24,
-//                         fontFamily: "Poppins",
-//                         fontWeight: FontWeight.w600,
-//                         color: Colors.black),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     ),
-//   );
-// }
 }

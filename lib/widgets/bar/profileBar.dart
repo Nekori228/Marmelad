@@ -30,17 +30,6 @@ class ProfileWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 60, 0, 0),
-                  child: Text(
-                    '+79888888999',
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF).withOpacity(0.4),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins"),
-                  ),
-                ),
-                Container(
                   margin: EdgeInsets.fromLTRB(220, 0, 1, 0),
                   child:
                   Image.asset("assets/gifs/higif.gif", fit: BoxFit.cover),

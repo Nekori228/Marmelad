@@ -14,7 +14,7 @@ class BookingHistotyBarWidget extends StatelessWidget {
             children: [
               Container(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(210, 30, 100, 0),
+                  margin: EdgeInsets.fromLTRB(200, 30, 50, 0),
                   child: SvgPicture.asset("assets/images/smale.svg",
                       fit: BoxFit.cover),
                 ),

@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/snack_bar.dart';
+import '../../widgets/appBar/authAppBar.dart';
+import '../../widgets/appBar/bookingHelpAppBar.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -16,7 +18,7 @@ class _SignUpScreen extends State<SignUpScreen> {
   TextEditingController emailTextInputController = TextEditingController();
   TextEditingController passwordTextInputController = TextEditingController();
   TextEditingController passwordTextRepeatInputController =
-  TextEditingController();
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -74,97 +76,243 @@ class _SignUpScreen extends State<SignUpScreen> {
       }
     }
 
-    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    navigator.pushNamedAndRemoveUntil('/main', (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Зарегистрироваться'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                email != null && !EmailValidator.validate(email)
-                    ? 'Введите правильный Email'
-                    : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
-                ),
-              ),
-              const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+      backgroundColor: Colors.black,
+      appBar: authAppBar(),
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 70, 0, 5),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'ПОЧТА',
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF).withOpacity(0.5),
+                        fontFamily: 'Overpass-Black',
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextRepeatInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль еще раз',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Colors.white),
+                  autocorrect: false,
+                  controller: emailTextInputController,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Введите правильный Email'
+                          : null,
+                  decoration: InputDecoration(
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    hintText: 'Marmelad@mail.ru',
+                    hintStyle: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFFFFFF).withOpacity(0.4)),
+                    filled: true,
+                    fillColor: Color(0xFFF7FF88).withOpacity(0.2),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'ПАРОЛЬ',
+                    style: TextStyle(
+                      color: Color(0xFFFFFFFF).withOpacity(0.5),
+                      fontFamily: 'Overpass-Black',
+                      fontSize: 14,
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: signUp,
-                child: const Center(child: Text('Регистрация')),
-              ),
-              const SizedBox(height: 30),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(
-                  'Войти',
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
+                TextFormField(
+                  autocorrect: false,
+                  style: TextStyle(color: Colors.white),
+                  controller: passwordTextInputController,
+                  obscureText: isHiddenPassword,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Минимум 6 символов'
+                      : null,
+                  decoration: InputDecoration(
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    hintText: '******',
+                    hintStyle: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFFFFFF).withOpacity(0.4)),
+                    filled: true,
+                    fillColor: Color(0xFFF7FF88).withOpacity(0.2),
+                    suffix: InkWell(
+                      onTap: togglePasswordView,
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        child: Icon(
+                          isHiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Color(0xFFF7FF88),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'ПОВТОРИТЕ ПАРОЛЬ',
+                    style: TextStyle(
+                      color: Color(0xFFFFFFFF).withOpacity(0.5),
+                      fontFamily: 'Overpass-Black',
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                TextFormField(
+                  autocorrect: false,
+                  style: TextStyle(color: Colors.white),
+                  controller: passwordTextRepeatInputController,
+                  obscureText: isHiddenPassword,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Минимум 6 символов'
+                      : null,
+                  decoration: InputDecoration(
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    contentPadding: EdgeInsets.fromLTRB(15, 10, 10, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                      BorderSide(color: Color(0xFFF7FF88), width: 3.0),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    hintText: '******',
+                    hintStyle: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFFFFFF).withOpacity(0.4)),
+                    filled: true,
+                    fillColor: Color(0xFFF7FF88).withOpacity(0.2),
+                    suffix: InkWell(
+                      onTap: togglePasswordView,
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        child: Icon(
+                          isHiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Color(0xFFF7FF88),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text(
+                    'Войти',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16
+                    ),
+                  ),
+                ),
+                Spacer(),
+                ElevatedButton(
+                  onPressed: signUp,
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset("assets/images/button.png",
+                          fit: BoxFit.cover),
+                      Text(
+                        'РЕГИСТРАЦИЯ',
+                        style: TextStyle(
+                            letterSpacing: 3.75,
+                            fontSize: 24,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

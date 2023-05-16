@@ -54,7 +54,7 @@ class _VisitDatePageState extends State<VisitDatePage> {
       child: Scaffold(
         backgroundColor: Color(0xFF000000),
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(100), child: CalendarDateAppBar()),
+            preferredSize: Size.fromHeight(70), child: CalendarDateAppBar()),
         // floatingActionButton: FloatingActionButton(
         //   child: const Icon(Icons.arrow_downward),
         //   onPressed: () {
@@ -76,7 +76,6 @@ class _VisitDatePageState extends State<VisitDatePage> {
             ),
             selectDate != null
                 ? Container(
-                    margin: EdgeInsets.only(bottom: 50),
                     child: Text(
                       selectDate,
                       style: TextStyle(
