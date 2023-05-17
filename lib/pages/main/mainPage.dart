@@ -29,7 +29,6 @@ class Main extends StatelessWidget {
       theme: themeMarmelad,
       home: StatefulBuilder(
         builder: (context, setStateMainPage) {
-          setStateMainPageCallback = setStateMainPage;
           return bottomNavigation();
         }
       ),

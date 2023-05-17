@@ -15,7 +15,6 @@ dynamic booking;
 dynamic comments;
 
 dynamic setStatePriceOrderCallback;
-dynamic setStateMainPageCallback;
 
 void initPrefs() async {
   prefs = await SharedPreferences.getInstance();

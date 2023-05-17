@@ -70,8 +70,8 @@ class ViewComment extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    'ЕВГЕНИЯ СЕРГЕЕВА',
+                                  Text(
+                                    comments[nameObject][index]['name'],
                                     style: TextStyle(color: Colors.white, fontFamily: "Overpass-Bold", fontSize: 15),
                                   ),
                                   const SizedBox(height: 2),

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marmelad/pages/main/viewComments.dart';
@@ -69,17 +70,22 @@ class _ViewItemState extends State<ViewItem> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              child: SmoothStarRating(
-                  allowHalfRating: false,
-                  onRatingChanged: (v) {
-                    rating = v;
-                  },
-                  starCount: 5,
-                  rating: rating,
-                  size: 60.0,
-                  color: const Color(0xFFF7FF88),
-                  borderColor: const Color(0xFFF7FF88),
-                  spacing: 0.0),
+              child: StatefulBuilder(
+                builder: (context, setStateSmooth) {
+                  return SmoothStarRating(
+                      allowHalfRating: false,
+                      onRatingChanged: (v) {
+                        rating = v;
+                        setStateSmooth(() {});
+                      },
+                      starCount: 5,
+                      rating: rating,
+                      size: 60.0,
+                      color: const Color(0xFFF7FF88),
+                      borderColor: const Color(0xFFF7FF88),
+                      spacing: 0.0);
+                }
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(20),
@@ -100,7 +106,7 @@ class _ViewItemState extends State<ViewItem> {
                       comments['Фреш роллы с креветкой'] = [];
                     }
                     comments['Фреш роллы с креветкой'].add({
-                      'name': 'Евгения Сергеева',
+                      'name': FirebaseAuth.instance.currentUser!.email.toString(),
                       'comments': descriptionController.text,
                       'rating': rating,
                       'date': DateFormat('dd.MM.yyyy').format(DateTime.now())

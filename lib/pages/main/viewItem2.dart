@@ -4,6 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:marmelad/pages/main/viewComments.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import '../../globals.dart';
@@ -69,17 +70,22 @@ class _ViewItem2State extends State<ViewItem2> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              child: SmoothStarRating(
-                  allowHalfRating: false,
-                  onRatingChanged: (v) {
-                    rating = v;
-                  },
-                  starCount: 5,
-                  rating: rating,
-                  size: 60.0,
-                  color: const Color(0xFFF7FF88),
-                  borderColor: const Color(0xFFF7FF88),
-                  spacing: 0.0),
+              child: StatefulBuilder(
+                builder: (context, setStateSmooth) {
+                  return SmoothStarRating(
+                      allowHalfRating: false,
+                      onRatingChanged: (v) {
+                        rating = v;
+                        setStateSmooth(() {});
+                      },
+                      starCount: 5,
+                      rating: rating,
+                      size: 60.0,
+                      color: const Color(0xFFF7FF88),
+                      borderColor: const Color(0xFFF7FF88),
+                      spacing: 0.0);
+                }
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(20),
@@ -100,7 +106,7 @@ class _ViewItem2State extends State<ViewItem2> {
                       comments['Чизкейк'] = [];
                     }
                     comments['Чизкейк'].add({
-                      'name': 'Евгения Сергеева',
+                      'name': FirebaseAuth.instance.currentUser!.email.toString(),
                       'comments': descriptionController.text,
                       'rating': rating,
                       'date': DateFormat('dd.MM.yyyy').format(DateTime.now())

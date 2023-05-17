@@ -8,6 +8,7 @@ import 'package:marmelad/pages/main/viewComments.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import '../../globals.dart';
 import '../../widgets/appBar/viewItemAppBar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:intl/intl.dart';
 
@@ -69,17 +70,22 @@ class _ViewItem3State extends State<ViewItem3> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              child: SmoothStarRating(
-                  allowHalfRating: false,
-                  onRatingChanged: (v) {
-                    rating = v;
-                  },
-                  starCount: 5,
-                  rating: rating,
-                  size: 60.0,
-                  color: const Color(0xFFF7FF88),
-                  borderColor: const Color(0xFFF7FF88),
-                  spacing: 0.0),
+              child: StatefulBuilder(
+                  builder: (context, setStateSmooth) {
+                    return SmoothStarRating(
+                        allowHalfRating: false,
+                        onRatingChanged: (v) {
+                          rating = v;
+                          setStateSmooth(() {});
+                        },
+                        starCount: 5,
+                        rating: rating,
+                        size: 60.0,
+                        color: const Color(0xFFF7FF88),
+                        borderColor: const Color(0xFFF7FF88),
+                        spacing: 0.0);
+                  }
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(20),
@@ -100,7 +106,7 @@ class _ViewItem3State extends State<ViewItem3> {
                       comments['ВОДКА BELUGA'] = [];
                     }
                     comments['ВОДКА BELUGA'].add({
-                      'name': 'Евгения Сергеева',
+                      'name': FirebaseAuth.instance.currentUser!.email.toString(),
                       'comments': descriptionController.text,
                       'rating': rating,
                       'date': DateFormat('dd.MM.yyyy').format(DateTime.now())

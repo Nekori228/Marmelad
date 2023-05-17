@@ -1,14 +1,10 @@
 import 'dart:convert';
 
 import 'package:enough_mail/enough_mail.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:marmelad/globals.dart';
-import 'package:marmelad/pages/main/profile/sentMessageFeedbackPage.dart';
 import 'package:marmelad/pages/main/profile/sentMessageFinishingPage.dart';
 
-import '../../../widgets/bar/feedbackBar.dart';
 import '../../widgets/bar/bottomNavigationBar.dart';
 import '../../widgets/bar/finishingBar.dart';
 
@@ -63,196 +59,206 @@ class FinishingTouch extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                child: const FinishingBarWidget()),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.044),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 80),
-                  const Text(
-                    'ИМЯ',
-                    style: TextStyle(
-                        color: Color(0xFF666666),
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Overpass-Black"),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                    child: SizedBox(
-                      height: 50,
-                      child: TextField(
-                        controller: nameController,
-                        cursorColor: Colors.black,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(15, 10, 10, 10),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
+            Column(
+              children: [
+                Container(
+                    margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                    child: const FinishingBarWidget()),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.044),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 80),
+                      const Text(
+                        'ИМЯ',
+                        style: TextStyle(
+                            color: Color(0xFF666666),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Overpass-Black"),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: SizedBox(
+                          height: 50,
+                          child: TextField(
+                            controller: nameController,
+                            cursorColor: Colors.black,
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(15, 10, 10, 10),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              hintText: 'Иван',
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color:
+                                      const Color(0xFFFFFFFF).withOpacity(0.4),
+                                  fontFamily: 'Poppins'),
+                              filled: true,
+                              fillColor:
+                                  const Color(0xFFF7FF88).withOpacity(0.2),
+                            ),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          hintText: 'Иван',
-                          hintStyle: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  const Color(0xFFFFFFFF).withOpacity(0.4),
-                              fontFamily: 'Poppins'),
-                          filled: true,
-                          fillColor:
-                              const Color(0xFFF7FF88).withOpacity(0.2),
                         ),
                       ),
-                    ),
-                  ),
-                  const Text(
-                    'ФАМИЛИЯ',
-                    style: TextStyle(
-                        color: Color(0xFF666666),
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Overpass-Black"),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                    child: SizedBox(
-                      height: 50,
-                      child: TextField(
-                        controller: surnameController,
-                        cursorColor: Colors.black,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(15, 10, 10, 10),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
+                      const Text(
+                        'ФАМИЛИЯ',
+                        style: TextStyle(
+                            color: Color(0xFF666666),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Overpass-Black"),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: SizedBox(
+                          height: 50,
+                          child: TextField(
+                            controller: surnameController,
+                            cursorColor: Colors.black,
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(15, 10, 10, 10),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              hintText: 'Иванов',
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color:
+                                      const Color(0xFFFFFFFF).withOpacity(0.4),
+                                  fontFamily: 'Poppins'),
+                              filled: true,
+                              fillColor:
+                                  const Color(0xFFF7FF88).withOpacity(0.2),
+                            ),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          hintText: 'Иванов',
-                          hintStyle: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  const Color(0xFFFFFFFF).withOpacity(0.4),
-                              fontFamily: 'Poppins'),
-                          filled: true,
-                          fillColor:
-                              const Color(0xFFF7FF88).withOpacity(0.2),
                         ),
                       ),
-                    ),
-                  ),
-                  const Text(
-                    'КОЛИЧЕСТВО ПОСЕТИТЕЛЕЙ',
-                    style: TextStyle(
-                        color: Color(0xFF666666),
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Overpass-Black"),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                    child: SizedBox(
-                      height: 50,
-                      child: TextField(
-                        controller: humanController,
-                        cursorColor: Colors.black,
-                        keyboardType: TextInputType.number,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(15, 10, 10, 10),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
+                      const Text(
+                        'КОЛИЧЕСТВО ПОСЕТИТЕЛЕЙ',
+                        style: TextStyle(
+                            color: Color(0xFF666666),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Overpass-Black"),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: SizedBox(
+                          height: 50,
+                          child: TextField(
+                            controller: humanController,
+                            cursorColor: Colors.black,
+                            keyboardType: TextInputType.number,
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(15, 10, 10, 10),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xFFF7FF88), width: 3.0),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              hintText: '1 человек',
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color:
+                                      const Color(0xFFFFFFFF).withOpacity(0.4),
+                                  fontFamily: 'Poppins'),
+                              filled: true,
+                              fillColor:
+                                  const Color(0xFFF7FF88).withOpacity(0.2),
+                            ),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xFFF7FF88), width: 3.0),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          hintText: '1 человек',
-                          hintStyle: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  const Color(0xFFFFFFFF).withOpacity(0.4),
-                              fontFamily: 'Poppins'),
-                          filled: true,
-                          fillColor:
-                              const Color(0xFFF7FF88).withOpacity(0.2),
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        height: 200,
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: 200,
-                  ),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        sendMessage(context).then((value) {
-                          var booking_object = {
-                            'place': this.seat,
-                            'count_hum': humanController.text,
-                            'date': this.selectDate
-                          };
-                          booking.add(booking_object);
-                          prefs.setString('booking', jsonEncode(booking));
-                          prefs.setString(
-                              'lastBooking', jsonEncode(booking_object));
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const sentMessageFinishingPage()),
+                ),
+              ],
+            ),
+            Positioned(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: () {
+                    sendMessage(context).then((value) {
+                      var booking_object = {
+                        'place': this.seat,
+                        'count_hum': humanController.text,
+                        'date': this.selectDate
+                      };
+                      booking.add(booking_object);
+                      prefs.setString('booking', jsonEncode(booking));
+                      prefs.setString(
+                          'lastBooking', jsonEncode(booking_object));
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                              const sentMessageFinishingPage()),
                               (Route<dynamic> route) => false);
-                        });
-                      },
-                      clipBehavior: Clip.antiAlias,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset("assets/images/button.png",
-                              fit: BoxFit.cover),
-                          const Text(
-                            'ЗАБРОНИРОВАТЬ',
-                            style: TextStyle(
-                                letterSpacing: 3.75,
-                                fontSize: 24,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black),
-                          ),
-                        ],
-                      ),
+                    });
+                  },
+                  clipBehavior: Clip.antiAlias,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
                     ),
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.transparent,
+                    padding: EdgeInsets.zero,
                   ),
-                ],
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset("assets/images/button.png",
+                          fit: BoxFit.fitWidth),
+                      const Text(
+                        'ЗАБРОНИРОВАТЬ',
+                        style: TextStyle(
+                            letterSpacing: 3.75,
+                            fontSize: 24,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
               ),
+              bottom: 0,
             ),
           ],
         ),

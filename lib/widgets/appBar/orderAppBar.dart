@@ -22,7 +22,6 @@ class OrderAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: 30, height: 30),
           onPressed: () {
             selectedPageBottomBar = 0;
-            setStateMainPageCallback(() {});
             Navigator.pop(context);
           }),
     );
