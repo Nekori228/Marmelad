@@ -156,6 +156,7 @@ class ProfilePage extends StatelessWidget {
                               margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                               child: const Text(
                                 'Часто задаваемые вопросы',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: "Overpass-Bold",
