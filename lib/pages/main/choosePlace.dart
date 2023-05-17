@@ -590,7 +590,7 @@ class _ChoosePlacePageState extends State<ChoosePlacePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                            Spacer(),
                             Container(
                               margin: const EdgeInsets.only(top: 10),
                               decoration:

@@ -99,8 +99,12 @@ class _ViewItem2State extends State<ViewItem2> {
                     if (comments.keys.toList().contains('Чизкейк') == false) {
                       comments['Чизкейк'] = [];
                     }
-                    comments['Чизкейк'].add({'name': 'Евгения Сергеева', 'comments': descriptionController.text, 'rating': rating,
-                      'date': DateFormat('dd.MM.yyyy').format(DateTime.now())});
+                    comments['Чизкейк'].add({
+                      'name': 'Евгения Сергеева',
+                      'comments': descriptionController.text,
+                      'rating': rating,
+                      'date': DateFormat('dd.MM.yyyy').format(DateTime.now())
+                    });
                     prefs.setString('comments', jsonEncode(comments));
                     setPage(1);
                   },
@@ -454,7 +458,9 @@ class _ViewItem2State extends State<ViewItem2> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ViewComment(nameObject: 'Чизкейк',),
+                builder: (context) => ViewComment(
+                  nameObject: 'Чизкейк',
+                ),
               ),
             );
           },

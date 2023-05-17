@@ -707,7 +707,7 @@ class _ViewItem4State extends State<ViewItem4> {
             ),
           ),
         ),
-        bottomNavigationBar: page == 1
+        bottomNavigationBar: page == 0
             ? card.firstWhere((element) => element['name'] == 'Вино АЛЬМА ВЕЛЛИ', orElse: () {
                       return null;
                     }) ==

@@ -707,7 +707,7 @@ class _ViewItem3State extends State<ViewItem3> {
             ),
           ),
         ),
-        bottomNavigationBar: page == 1
+        bottomNavigationBar: page == 0
             ? card.firstWhere((element) => element['name'] == 'Водка BELUGA', orElse: () {
                       return null;
                     }) ==

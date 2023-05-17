@@ -708,7 +708,7 @@ class _ViewItemState extends State<ViewItem> {
             ),
           ),
         ),
-        bottomNavigationBar: page == 1
+        bottomNavigationBar: page == 0
             ? card.firstWhere((element) => element['name'] == 'Фреш роллы с креветкой', orElse: () {
                       return null;
                     }) ==
