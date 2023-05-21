@@ -28,7 +28,7 @@ class FeedbackPage extends StatelessWidget {
         htmlText: message.toString(),
       )
         ..from = [MailAddress('Marmelad', 'm_marmelad_m@mail.ru')]
-        ..to = [MailAddress('Recipient Name', 'kalichak_eo@mail.ru')]
+        ..to = [MailAddress('Recipient Name', 'marmelad.0306@gmail.com')]
         ..subject = 'Обратная связь';
 
       final mimeMessage = builder.buildMimeMessage();
@@ -142,7 +142,7 @@ class FeedbackPage extends StatelessWidget {
                           borderSide: const BorderSide(color: Color(0xFFF7FF88), width: 3.0),
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        hintText: 'danil.superdesign@gmail.com',
+                        hintText: '12345bema@gmail.com',
                         hintStyle: TextStyle(fontSize: 14, color: const Color(0xFFFFFFFF).withOpacity(0.4), fontFamily: 'Poppins'),
                         filled: true,
                         fillColor: const Color(0xFFF7FF88).withOpacity(0.2),
